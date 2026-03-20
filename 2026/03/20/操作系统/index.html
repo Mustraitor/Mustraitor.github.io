@@ -19,37 +19,36 @@
   <meta name="author" content="hanyi li">
   <meta name="keywords" content="">
   
-    <meta name="description" content="操作系统计算机系统体系结构 冯·诺依曼结构  单处理系统 只有一个CPU，执行通用指令集 带有专用处理器，专用处理器执行有限的指令集，而并不执行用户进程  多处理器系统 非对称处理器：每个处理器有其特定任务，一个主处理器 + 其它处理器，主处理器调度从处理器，并安排任务  对称处理器：每个处理器都参与完成操作系统的所有任务，无主从关系  优点： 增加吞吐量 规模经济 增加可靠性   操作系统结构多">
+    <meta name="description" content="操作系统计算机系统体系结构 冯·诺依曼结构  单处理系统 只有一个CPU，执行通用指令集 带有专用处理器，专用处理器执行有限的指令集，而并不执行用户进程  多处理器系统 非对称处理器：每个处理器有其特定任务，一个主处理器 + 其它处理器，主处理器调度从处理器，并安排任务 对称处理器：每个处理器都参与完成操作系统的所有任务，无主从关系  优点： 增加吞吐量 规模经济 增加可靠性   操作系统结构多道">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo">
+<meta property="og:title" content="操作系统">
 <meta property="og:url" content="https://mustraitor.github.io/2026/03/20/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="操作系统计算机系统体系结构 冯·诺依曼结构  单处理系统 只有一个CPU，执行通用指令集 带有专用处理器，专用处理器执行有限的指令集，而并不执行用户进程  多处理器系统 非对称处理器：每个处理器有其特定任务，一个主处理器 + 其它处理器，主处理器调度从处理器，并安排任务  对称处理器：每个处理器都参与完成操作系统的所有任务，无主从关系  优点： 增加吞吐量 规模经济 增加可靠性   操作系统结构多">
+<meta property="og:description" content="操作系统计算机系统体系结构 冯·诺依曼结构  单处理系统 只有一个CPU，执行通用指令集 带有专用处理器，专用处理器执行有限的指令集，而并不执行用户进程  多处理器系统 非对称处理器：每个处理器有其特定任务，一个主处理器 + 其它处理器，主处理器调度从处理器，并安排任务 对称处理器：每个处理器都参与完成操作系统的所有任务，无主从关系  优点： 增加吞吐量 规模经济 增加可靠性   操作系统结构多道">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://mustraitor.github.io/img/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.assets/image-20250628104921923.png">
-<meta property="og:image" content="https://mustraitor.github.io/img/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.assets/image-20250628105901712.png">
-<meta property="og:image" content="https://mustraitor.github.io/img/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.assets/image-20250628103028129.png">
-<meta property="og:image" content="https://mustraitor.github.io/img/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.assets/image-20250628095946205.png">
-<meta property="og:image" content="https://mustraitor.github.io/img/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.assets/image-20250629194333205.png">
-<meta property="og:image" content="https://mustraitor.github.io/img/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.assets/image-20250629195146906.png">
-<meta property="og:image" content="https://mustraitor.github.io/img/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.assets/image-20250629201027287.png">
-<meta property="og:image" content="https://mustraitor.github.io/img/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.assets/image-20250629203712437.png">
-<meta property="og:image" content="https://mustraitor.github.io/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.assets/image-20251030085757893.png">
-<meta property="og:image" content="https://mustraitor.github.io/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.assets/image-20251103160459578.png">
-<meta property="og:image" content="https://mustraitor.github.io/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.assets/image-20251103161146881.png">
-<meta property="og:image" content="https://mustraitor.github.io/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.assets/image-20251103164717518.png">
-<meta property="og:image" content="https://mustraitor.github.io/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.assets/image-20260304113434877.png">
-<meta property="og:image" content="https://mustraitor.github.io/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.assets/image-20260311153656445.png">
-<meta property="og:image" content="https://mustraitor.github.io/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.assets/image-20260311153717490.png">
+<meta property="og:image" content="https://mustraitor.github.io/2026/03/20/img/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.assets/image-20250628104921923.png">
+<meta property="og:image" content="https://mustraitor.github.io/2026/03/20/img/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.assets/image-20250628103028129.png">
+<meta property="og:image" content="https://mustraitor.github.io/2026/03/20/img/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.assets/image-20250628095946205.png">
+<meta property="og:image" content="https://mustraitor.github.io/2026/03/20/img/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.assets/image-20250629194333205.png">
+<meta property="og:image" content="https://mustraitor.github.io/2026/03/20/img/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.assets/image-20250629195146906.png">
+<meta property="og:image" content="https://mustraitor.github.io/2026/03/20/img/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.assets/image-20250629201027287.png">
+<meta property="og:image" content="https://mustraitor.github.io/2026/03/20/img/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.assets/image-20250629203712437.png">
+<meta property="og:image" content="https://mustraitor.github.io/2026/03/20/img/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.assets/image-20251030085757893.png">
+<meta property="og:image" content="https://mustraitor.github.io/2026/03/20/img/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.assets/image-20251103160459578.png">
+<meta property="og:image" content="https://mustraitor.github.io/2026/03/20/img/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.assets/image-20251103161146881.png">
+<meta property="og:image" content="https://mustraitor.github.io/2026/03/20/img/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.assets/image-20251103164717518.png">
+<meta property="og:image" content="https://mustraitor.github.io/2026/03/20/img/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.assets/image-20260304113434877.png">
+<meta property="og:image" content="https://mustraitor.github.io/2026/03/20/img/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.assets/image-20260311153656445.png">
+<meta property="og:image" content="https://mustraitor.github.io/2026/03/20/img/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.assets/image-20260311153717490.png">
 <meta property="article:published_time" content="2026-03-20T11:59:46.177Z">
-<meta property="article:modified_time" content="2026-03-20T12:10:05.361Z">
+<meta property="article:modified_time" content="2026-03-20T12:44:35.047Z">
 <meta property="article:author" content="hanyi li">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://mustraitor.github.io/img/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.assets/image-20250628104921923.png">
+<meta name="twitter:image" content="https://mustraitor.github.io/2026/03/20/img/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.assets/image-20250628104921923.png">
   
   
   
-  <title>Hexo</title>
+  <title>操作系统 - Hexo</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -318,7 +317,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text=""></span>
+            <span id="subtitle" data-typed-text="操作系统"></span>
           
         </div>
 
@@ -341,7 +340,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          4k words
+          3.9k words
         
       </span>
     
@@ -352,7 +351,7 @@
         
         
         
-          34 mins
+          33 mins
         
       </span>
     
@@ -391,22 +390,21 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header"></h1>
+            <h1 id="seo-header">操作系统</h1>
             
             
               <div class="markdown-body">
                 
                 <h1 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h1><h2 id="计算机系统体系结构"><a href="#计算机系统体系结构" class="headerlink" title="计算机系统体系结构"></a>计算机系统体系结构</h2><ul>
-<li><strong>冯·诺依曼结构</strong><br><img src="/img/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.assets/image-20250628104921923.png" srcset="/img/loading.gif" lazyload alt="image-20250628104921923"></li>
+<li><strong>冯·诺依曼结构</strong><br><img src="../img/操作系统.assets/image-20250628104921923.png" srcset="/img/loading.gif" lazyload alt="image-20250628104921923"></li>
 </ul>
 <h3 id="单处理系统"><a href="#单处理系统" class="headerlink" title="单处理系统"></a>单处理系统</h3><ul>
 <li>只有一个CPU，执行<strong>通用</strong>指令集</li>
 <li>带有专用处理器，专用处理器执行<strong>有限</strong>的指令集，而并不执行用户进程</li>
 </ul>
 <h3 id="多处理器系统"><a href="#多处理器系统" class="headerlink" title="多处理器系统"></a>多处理器系统</h3><ul>
-<li><p><strong>非对称处理器</strong>：每个处理器有其<strong>特定任务</strong>，一个主处理器 + 其它处理器，主处理器调度从处理器，并安排任务</p>
-</li>
-<li><p><strong>对称处理器</strong>：每个处理器都参与完成操作系统的所有任务，无主从关系<br><img src="/img/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.assets/image-20250628105901712.png" srcset="/img/loading.gif" lazyload alt="image-20250628105901712"></p>
+<li><strong>非对称处理器</strong>：每个处理器有其<strong>特定任务</strong>，一个主处理器 + 其它处理器，主处理器调度从处理器，并安排任务</li>
+<li><p><strong>对称处理器</strong>：每个处理器都参与完成操作系统的所有任务，无主从关系</p>
 </li>
 <li><p>优点：</p>
 <p>增加吞吐量</p>
@@ -419,15 +417,14 @@
 </li>
 <li><p>通过安排<strong>作业</strong>，让CPU始终有一个作业执行，提高CPU利用率</p>
 </li>
-<li><p>作业首先保存在<strong>磁盘的作业池（job pool）</strong></p>
-</li>
+<li>作业首先保存在<strong>磁盘的作业池（job pool）</strong></li>
 </ul>
 <h3 id="分时系统"><a href="#分时系统" class="headerlink" title="分时系统"></a>分时系统</h3><ul>
 <li>通过切换作业来执行多个作业，切换频率快（伪并行）</li>
 </ul>
 <h2 id="操作系统的执行"><a href="#操作系统的执行" class="headerlink" title="操作系统的执行"></a>操作系统的执行</h2><ul>
 <li><strong>中断</strong>驱动的，事件是由中断或陷阱引起的</li>
-<li>陷阱（中断&#x2F;异常）是一种软件生成的中断，或源于出错，或源于用户程序的特定请求</li>
+<li>陷阱（中断/异常）是一种软件生成的中断，或源于出错，或源于用户程序的特定请求</li>
 </ul>
 <h3 id="双重模式"><a href="#双重模式" class="headerlink" title="双重模式"></a>双重模式</h3><ul>
 <li><strong>用户模式</strong>（user mode）和<strong>内核模式</strong> （kernel mode）</li>
@@ -435,7 +432,7 @@
 <li>内核模式才允许执行<strong>特权指令</strong></li>
 <li>当计算机系统执行用户应用时，系统处于用户模式，当用户应用通过<strong>系统调用</strong>，请求操作系统服务时，系统必须从用户模式切换到内核模式</li>
 </ul>
-<p><img src="/img/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.assets/image-20250628103028129.png" srcset="/img/loading.gif" lazyload alt="image-20250628103028129"></p>
+<p><img src="../img/操作系统.assets/image-20250628103028129.png" srcset="/img/loading.gif" lazyload alt="image-20250628103028129"></p>
 <ul>
 <li>双重模式执行提供保护手段，以便防止操作系统和用户程序受到错误用户程序的影响</li>
 </ul>
@@ -464,23 +461,23 @@
 <li>提供信息存储的统一逻辑视图</li>
 <li>逻辑单元，即文件</li>
 </ul>
-<h2 id="高速缓存"><a href="#高速缓存" class="headerlink" title="高速缓存"></a>高速缓存</h2><p><img src="/img/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.assets/image-20250628095946205.png" srcset="/img/loading.gif" lazyload alt="image-20250628095946205"></p>
+<h2 id="高速缓存"><a href="#高速缓存" class="headerlink" title="高速缓存"></a>高速缓存</h2><p><img src="../img/操作系统.assets/image-20250628095946205.png" srcset="/img/loading.gif" lazyload alt="image-20250628095946205"></p>
 <h2 id="计算环境"><a href="#计算环境" class="headerlink" title="计算环境"></a>计算环境</h2><ul>
 <li>传统计算</li>
 <li>移动计算</li>
 <li>对等计算</li>
-<li>C&#x2F;S</li>
+<li>C/S</li>
 <li>虚拟化</li>
-<li>云计算<br><img src="/img/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.assets/image-20250629194333205.png" srcset="/img/loading.gif" lazyload alt="image-20250629194333205"></li>
+<li>云计算<br><img src="../img/操作系统.assets/image-20250629194333205.png" srcset="/img/loading.gif" lazyload alt="image-20250629194333205"></li>
 </ul>
 <h2 id="2-操作系统服务"><a href="#2-操作系统服务" class="headerlink" title="2 操作系统服务"></a>2 操作系统服务</h2><ul>
 <li>提供环境，以便执行程序</li>
 </ul>
-<p><img src="/img/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.assets/image-20250629195146906.png" srcset="/img/loading.gif" lazyload alt="image-20250629195146906"></p>
+<p><img src="../img/操作系统.assets/image-20250629195146906.png" srcset="/img/loading.gif" lazyload alt="image-20250629195146906"></p>
 <ul>
 <li>用户界面：命令行界面（Shell）、批处理界面、图形用户界面（GUI）</li>
 <li>程序执行</li>
-<li>I&#x2F;O操作</li>
+<li>I/O操作</li>
 <li>文件系统操作</li>
 <li>通信：一个进程与另一个进程交换信息（内存共享、消息交换）</li>
 <li>错误检测</li>
@@ -491,7 +488,7 @@
 <h3 id="系统调用"><a href="#系统调用" class="headerlink" title="系统调用"></a>系统调用</h3><ul>
 <li>提供操作系统服务接口</li>
 </ul>
-<p><img src="/img/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.assets/image-20250629201027287.png" srcset="/img/loading.gif" lazyload alt="image-20250629201027287"></p>
+<p><img src="../img/操作系统.assets/image-20250629201027287.png" srcset="/img/loading.gif" lazyload alt="image-20250629201027287"></p>
 <p><strong>六大类型</strong></p>
 <ul>
 <li>进程控制<br>多个进程会<strong>共享数据</strong><br>一个进程锁定，其它进程不能访问该数据</li>
@@ -521,7 +518,7 @@
 <h2 id="3-进程"><a href="#3-进程" class="headerlink" title="3 进程"></a>3 进程</h2><ul>
 <li>执行中的程序实体, 还包含<strong>当前活动</strong>，数据结构</li>
 <li>进行资源分配和调度的基本单元</li>
-<li>CPU密集型进程和I&#x2F;O密集型进程</li>
+<li>CPU密集型进程和I/O密集型进程</li>
 <li>具有独立的地址空间</li>
 </ul>
 <h3 id="进程状态"><a href="#进程状态" class="headerlink" title="进程状态"></a>进程状态</h3><ul>
@@ -531,18 +528,18 @@
 <li>就绪（ready）</li>
 <li>终止（terminated）</li>
 </ul>
-<p><img src="/img/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.assets/image-20250629203712437.png" srcset="/img/loading.gif" lazyload alt="image-20250629203712437"></p>
+<p><img src="../img/操作系统.assets/image-20250629203712437.png" srcset="/img/loading.gif" lazyload alt="image-20250629203712437"></p>
 <p><strong>僵尸进程</strong>：是已经 <strong>终止执行，但它的 PCB（进程控制块）还存在</strong>，等待父进程读取其退出状态的进程。（死了但还没收尸的进程）</p>
 <p><strong>孤儿进程</strong>：是 <strong>父进程先退出，而子进程仍在运行</strong> 的进程</p>
 <h3 id="进程控制块（PCB）"><a href="#进程控制块（PCB）" class="headerlink" title="进程控制块（PCB）"></a>进程控制块（PCB）</h3><ul>
-<li><p>记录进程的相关信息（仓库）<br>进程状态、程序计数器、CPU调度信息、内存管理信息、记账信息、I&#x2F;O状态信息</p>
-<p><img src="/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.assets/image-20251030085757893.png" srcset="/img/loading.gif" lazyload alt="image-20251030085757893"></p>
+<li><p>记录进程的相关信息（仓库）<br>进程状态、程序计数器、CPU调度信息、内存管理信息、记账信息、I/O状态信息</p>
+<p><img src="../img/操作系统.assets/image-20251030085757893.png" srcset="/img/loading.gif" lazyload alt="image-20251030085757893"></p>
 </li>
 </ul>
 <h3 id="进程调度"><a href="#进程调度" class="headerlink" title="进程调度"></a>进程调度</h3><ul>
 <li>作业队列：所有进程</li>
 <li>就绪队列（链表）：驻留在内存中、就绪的、等待的</li>
-<li>设备队列：I&#x2F;O设备的进程</li>
+<li>设备队列：I/O设备的进程</li>
 </ul>
 <h3 id="调度程序"><a href="#调度程序" class="headerlink" title="调度程序"></a>调度程序</h3><ul>
 <li>长期调度程序（作业池选择进程，加到内存）</li>
@@ -554,8 +551,7 @@
 </li>
 <li><p>保存当前进程状态</p>
 </li>
-<li><p>恢复另一个进程状态</p>
-</li>
+<li>恢复另一个进程状态</li>
 </ul>
 <h3 id="进程运行"><a href="#进程运行" class="headerlink" title="进程运行"></a>进程运行</h3><p>进程创建</p>
 <ul>
@@ -566,7 +562,7 @@
 <li>消息传递</li>
 <li>共享内存</li>
 </ul>
-<h3 id="客户机-服务器通信"><a href="#客户机-服务器通信" class="headerlink" title="客户机&#x2F;服务器通信"></a>客户机&#x2F;服务器通信</h3><ul>
+<h3 id="客户机-服务器通信"><a href="#客户机-服务器通信" class="headerlink" title="客户机/服务器通信"></a>客户机/服务器通信</h3><ul>
 <li>套接字</li>
 <li>远程过程调用（RPC）</li>
 <li>管道（普通管道、命名管道）</li>
@@ -600,9 +596,9 @@
 <li>平均等待时间最短</li>
 <li>用于长期调度</li>
 </ul>
-<p>​	<strong>非抢占SJF调度</strong>：会等待进程执行完，再从剩余进程中选取最短</p>
-<p>​	<strong>抢占SJF调度</strong>：执行进程的剩余时间会与到达进程执行时间进行比较</p>
-<p><img src="/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.assets/image-20251103160459578.png" srcset="/img/loading.gif" lazyload alt="image-20251103160459578"></p>
+<p>​    <strong>非抢占SJF调度</strong>：会等待进程执行完，再从剩余进程中选取最短</p>
+<p>​    <strong>抢占SJF调度</strong>：执行进程的剩余时间会与到达进程执行时间进行比较</p>
+<p><img src="../img/操作系统.assets/image-20251103160459578.png" srcset="/img/loading.gif" lazyload alt="image-20251103160459578"></p>
 <p><strong>优先级调度</strong></p>
 <ul>
 <li><p>按最高优先级分配CPU</p>
@@ -610,9 +606,9 @@
 <li><p>相同优先级的进程按FCFS顺序调度</p>
 </li>
 </ul>
-<p><img src="/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.assets/image-20251103161146881.png" srcset="/img/loading.gif" lazyload alt="image-20251103161146881"></p>
+<p><img src="../img/操作系统.assets/image-20251103161146881.png" srcset="/img/loading.gif" lazyload alt="image-20251103161146881"></p>
 <ul>
-<li>主要问题：无穷阻塞&#x2F;饥饿</li>
+<li>主要问题：无穷阻塞/饥饿</li>
 <li>解决方案：老化，逐渐增加在系统中等待很长时间的进程的优先级</li>
 </ul>
 <p><strong>轮转调度</strong>（Round-Robin, RR）</p>
@@ -620,7 +616,7 @@
 <li>为每个进程分配<strong>不超过</strong>一个时间片的CPU执行</li>
 <li>CPU按顺序访问就绪队列中的进程</li>
 </ul>
-<p><img src="/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.assets/image-20251103164717518.png" srcset="/img/loading.gif" lazyload alt="image-20251103164717518"></p>
+<p><img src="../img/操作系统.assets/image-20251103164717518.png" srcset="/img/loading.gif" lazyload alt="image-20251103164717518"></p>
 <ul>
 <li>性能取决于时间片大小<br>时间片小，会频繁上下文切换<br>时间片大，类似FCFS</li>
 </ul>
@@ -659,13 +655,13 @@
 <p><strong>优先权调度</strong></p>
 <ul>
 <li>支持抢占的基于优先权的算法（保证软实时）</li>
-<li>特性：进程是周期性的，0 &lt;&#x3D; t &lt;&#x3D; d &lt;&#x3D; p（保证硬实时）</li>
+<li>特性：进程是周期性的，0 &lt;= t &lt;= d &lt;= p（保证硬实时）</li>
 </ul>
 <p><strong>单调速率调度</strong></p>
 <ul>
 <li>抢占的、静态优先级</li>
 <li>周期越短，优先级越高</li>
-<li>调度N个进程的最坏情况下CPU利用率：N（2^1&#x2F;n - 1）</li>
+<li>调度N个进程的最坏情况下CPU利用率：N（2^1/n - 1）</li>
 </ul>
 <p><strong>最早截止期限优先调度</strong>（EDF）</p>
 <ul>
@@ -691,12 +687,12 @@
 <p><strong>信号量</strong></p>
 <ul>
 <li>计数信号量</li>
-<li>二进制信号量</li>
+<li>二进制信号量 </li>
 </ul>
 <h2 id="8-内存管理策略"><a href="#8-内存管理策略" class="headerlink" title="8 内存管理策略"></a>8 内存管理策略</h2><p><strong>内存</strong>：很大的字节数组</p>
 <p><strong>基地址寄存器</strong>（base register）：含有最小的合法的物理内存地址</p>
 <p><strong>界限地址寄存器</strong>(limit register)：指定了范围大小</p>
-<p>物理地址 &#x3D; 基地址寄存器的值 + 逻辑地址</p>
+<p>物理地址 = 基地址寄存器的值 + 逻辑地址</p>
 <p><strong>交换</strong>：当内存不够时，把暂时不用的整个进程从内存移到外存；等需要时再换回来。</p>
 <p><strong>标准交换</strong>：进程在内存与备份存储之间移动</p>
 <p><strong>地址绑定</strong></p>
@@ -709,6 +705,7 @@
 </li>
 </ul>
 <p><strong>按字节编址</strong>：每个地址对应 1 个字节的内容</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -716,7 +713,8 @@
 <th>存的内容</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>0x1000</td>
 <td>0xAB</td>
 </tr>
@@ -728,7 +726,9 @@
 <td>0x1002</td>
 <td>0xF0</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p><strong>程序的链接：</strong></p>
 <ul>
 <li>静态链接</li>
@@ -755,7 +755,7 @@
 <li>最优适应：最小的、但又能装下进程大小的空闲块</li>
 <li>最差适应：<strong>最大的空闲块</strong> 分给进程</li>
 </ul>
-<p><img src="/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.assets/image-20260304113434877.png" srcset="/img/loading.gif" lazyload alt="image-20260304113434877"></p>
+<p><img src="../img/操作系统.assets/image-20260304113434877.png" srcset="/img/loading.gif" lazyload alt="image-20260304113434877"></p>
 <p>内存碎片</p>
 <ul>
 <li>外部碎片：多个小、分散的空闲区，不能合并</li>
@@ -766,8 +766,8 @@
 <h3 id="离散内存分配管理"><a href="#离散内存分配管理" class="headerlink" title="离散内存分配管理"></a>离散内存分配管理</h3><p><strong>分段</strong>：是按程序逻辑划分内存的方式，每个段是逻辑上独立的单元</p>
 <ul>
 <li><strong>单位</strong>：逻辑段（代码段、数据段、栈段、堆段等）</li>
-<li><strong>地址形式</strong>：逻辑地址 &#x3D; &lt;段号, 段内偏移&gt;</li>
-<li><strong>物理地址计算</strong>：物理地址 &#x3D; 段基址 + 段内偏移</li>
+<li><strong>地址形式</strong>：逻辑地址 = &lt;段号, 段内偏移&gt;</li>
+<li><strong>物理地址计算</strong>：物理地址 = 段基址 + 段内偏移</li>
 <li><strong>段表</strong>：记录每段的基址和长度（段长），用于地址映射和保护</li>
 </ul>
 <p><strong>分段的特点</strong></p>
@@ -804,11 +804,11 @@
 <ol>
 <li>逻辑清晰，程序结构映射到内存结构</li>
 <li>可以实现访问控制，提高安全性</li>
-<li>支持段动态增长（堆、栈）</li>
-</ol>
-<p>   <strong>缺点：</strong></p>
-<ol>
-<li>容易产生 <strong>外部碎片</strong>（段长不固定）</li>
+<li><p>支持段动态增长（堆、栈）</p>
+<p><strong>缺点：</strong></p>
+</li>
+<li><p>容易产生 <strong>外部碎片</strong>（段长不固定）</p>
+</li>
 <li>段表开销大，每个进程需要维护段表</li>
 <li>只分段不能支持虚拟内存，需要结合分页</li>
 </ol>
@@ -859,12 +859,12 @@
 <ul>
 <li>简单clock算法</li>
 </ul>
-<p><img src="/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.assets/image-20260311153656445.png" srcset="/img/loading.gif" lazyload alt="image-20260311153656445"></p>
+<p><img src="../img/操作系统.assets/image-20260311153656445.png" srcset="/img/loading.gif" lazyload alt="image-20260311153656445"></p>
 <ul>
 <li>改进型 Clock 算法</li>
 </ul>
 <p><strong>LFU</strong>：替换历史最少访问次数</p>
-<p><img src="/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.assets/image-20260311153717490.png" srcset="/img/loading.gif" lazyload alt="image-20260311153717490"></p>
+<p><img src="../img/操作系统.assets/image-20260311153717490.png" srcset="/img/loading.gif" lazyload alt="image-20260311153717490"></p>
 
                 
               </div>
@@ -872,6 +872,27 @@
             <hr/>
             <div>
               <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" class="category-chain-item">计算机基础</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
   
   
 </div>
@@ -882,7 +903,7 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div></div>
+      <div>操作系统</div>
       <div>https://mustraitor.github.io/2026/03/20/操作系统/</div>
     </div>
     <div class="license-meta">
@@ -927,15 +948,15 @@
                   <article class="post-prev col-6">
                     
                     
+                      <a href="/2026/03/20/C/" title="C语言程序设计笔记">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">C语言程序设计笔记</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
                   </article>
                   <article class="post-next col-6">
                     
-                    
-                      <a href="/2026/03/20/hello-world/" title="Hello World">
-                        <span class="hidden-mobile">Hello World</span>
-                        <span class="visible-mobile">Next</span>
-                        <i class="iconfont icon-arrowright"></i>
-                      </a>
                     
                   </article>
                 </div>

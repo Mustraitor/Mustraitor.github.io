@@ -1,0 +1,1090 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="hanyi li">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="计组计算机体系结构  CPU：实际执行程序的部分 微处理器：单个硅片上上实现的CPU 寄存器：CPU内部用来存放数据的存储单元 时钟：用以生成连续的间隔固定的电脉冲流 指令集体系结构（ISA）： CPU 对程序员（或编译器）提供的“接口规范（程序员可见的）  程序的执行过程  指令集体系结构（ISA）  精简指令集计算机（RISC）：ARM架构  复杂指令集计算机（CISC）：x86架构（Inte">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算机组成原理">
+<meta property="og:url" content="https://mustraitor.github.io/2026/03/20/%E8%AE%A1%E7%BB%84/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="计组计算机体系结构  CPU：实际执行程序的部分 微处理器：单个硅片上上实现的CPU 寄存器：CPU内部用来存放数据的存储单元 时钟：用以生成连续的间隔固定的电脉冲流 指令集体系结构（ISA）： CPU 对程序员（或编译器）提供的“接口规范（程序员可见的）  程序的执行过程  指令集体系结构（ISA）  精简指令集计算机（RISC）：ARM架构  复杂指令集计算机（CISC）：x86架构（Inte">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://mustraitor.github.io/2026/03/20/img/%E8%AE%A1%E7%BB%84.assets/image-20260302202051685-1772454055426-1.png">
+<meta property="og:image" content="https://mustraitor.github.io/2026/03/20/img/%E8%AE%A1%E7%BB%84.assets/image-20260302204426625.png">
+<meta property="og:image" content="https://mustraitor.github.io/2026/03/20/img/%E8%AE%A1%E7%BB%84.assets/image-20260303200845516.png">
+<meta property="og:image" content="https://mustraitor.github.io/2026/03/20/img/%E8%AE%A1%E7%BB%84.assets/image-20260303205118367.png">
+<meta property="og:image" content="https://mustraitor.github.io/2026/03/20/img/%E8%AE%A1%E7%BB%84.assets/image-20260305190935614.png">
+<meta property="og:image" content="https://mustraitor.github.io/2026/03/20/img/%E8%AE%A1%E7%BB%84.assets/image-20260307213419778.png">
+<meta property="og:image" content="https://mustraitor.github.io/2026/03/20/img/%E8%AE%A1%E7%BB%84.assets/image-20260305200620812.png">
+<meta property="og:image" content="https://mustraitor.github.io/2026/03/20/img/%E8%AE%A1%E7%BB%84.assets/image-20260308111819204.png">
+<meta property="og:image" content="https://mustraitor.github.io/2026/03/20/img/%E8%AE%A1%E7%BB%84.assets/image-20260314105729040.png">
+<meta property="og:image" content="https://mustraitor.github.io/2026/03/20/img/%E8%AE%A1%E7%BB%84.assets/image-20260312213551549.png">
+<meta property="og:image" content="https://mustraitor.github.io/2026/03/20/img/%E8%AE%A1%E7%BB%84.assets/image-20260306195637139.png">
+<meta property="og:image" content="https://mustraitor.github.io/2026/03/20/img/%E8%AE%A1%E7%BB%84.assets/image-20260306123034682.png">
+<meta property="og:image" content="https://mustraitor.github.io/2026/03/20/img/%E8%AE%A1%E7%BB%84.assets/image-20260307095907702.png">
+<meta property="og:image" content="https://mustraitor.github.io/2026/03/20/img/%E8%AE%A1%E7%BB%84.assets/image-20260307101810315.png">
+<meta property="article:published_time" content="2026-03-20T12:24:50.384Z">
+<meta property="article:modified_time" content="2026-03-20T12:44:31.496Z">
+<meta property="article:author" content="hanyi li">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://mustraitor.github.io/2026/03/20/img/%E8%AE%A1%E7%BB%84.assets/image-20260302202051685-1772454055426-1.png">
+  
+  
+  
+  <title>计算机组成原理 - Hexo</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"mustraitor.github.io","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content (desktop) -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>Archives</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>Categories</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>Tags</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>About</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile grid menu overlay -->
+<div id="mobile-grid-menu" class="d-lg-none">
+  <div class="mobile-grid-menu-inner">
+    <div class="container">
+      <div class="row">
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-home-fill"></i>
+                  <span>Home</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/archives/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-archive-fill"></i>
+                  <span>Archives</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/categories/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-category-fill"></i>
+                  <span>Categories</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/tags/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-tags-fill"></i>
+                  <span>Tags</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/about/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-user-fill"></i>
+                  <span>About</span>
+                </div>
+              </a>
+            </div>
+          
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-search-btn">
+            <a href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-search"></i>
+                <span>Search</span>
+              </div>
+            </a>
+          </div>
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-color-toggle-btn"
+               data-label-light="Light"
+               data-label-dark="Dark">
+            <a href="javascript:;" aria-label="Color Toggle">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-dark" id="mobile-color-toggle-icon"></i>
+                <span id="mobile-color-toggle-label">Dark</span>
+              </div>
+            </a>
+          </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="计算机组成原理"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-03-20 20:24" pubdate>
+          March 20, 2026 pm
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3.3k words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          28 mins
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">计算机组成原理</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="计组"><a href="#计组" class="headerlink" title="计组"></a>计组</h1><h2 id="计算机体系结构"><a href="#计算机体系结构" class="headerlink" title="计算机体系结构"></a>计算机体系结构</h2><p><img src="../img/计组.assets/image-20260302202051685-1772454055426-1.png" srcset="/img/loading.gif" lazyload alt="image-20260302202051685"></p>
+<ul>
+<li>CPU：实际执行程序的部分</li>
+<li>微处理器：单个硅片上上实现的CPU</li>
+<li>寄存器：CPU内部用来存放数据的存储单元</li>
+<li>时钟：用以生成连续的间隔固定的电脉冲流</li>
+<li>指令集体系结构（ISA）： CPU 对程序员（或编译器）提供的“接口规范（程序员可见的）</li>
+</ul>
+<p><strong>程序的执行过程</strong></p>
+<p><img src="../img/计组.assets/image-20260302204426625.png" srcset="/img/loading.gif" lazyload alt="image-20260302204426625"></p>
+<p><strong>指令集体系结构（ISA）</strong></p>
+<ul>
+<li><p><strong>精简指令集计算机（RISC）</strong>：ARM架构</p>
+</li>
+<li><p><strong>复杂指令集计算机（CISC）</strong>：x86架构（Intel）</p>
+</li>
+</ul>
+<h2 id="指令格式"><a href="#指令格式" class="headerlink" title="指令格式"></a>指令格式</h2><ul>
+<li>操作码</li>
+<li>操作数（operand）</li>
+</ul>
+<p><img src="../img/计组.assets/image-20260303200845516.png" srcset="/img/loading.gif" lazyload alt="image-20260303200845516"></p>
+<p><strong>计算机指令执行流程：</strong></p>
+<ol>
+<li>读取指令：CPU 根据地址从内存提取指令。</li>
+<li>解码指令：分析操作码确定操作类型。</li>
+<li>获取数据：根据操作数地址取数。</li>
+<li>执行运算：在加法器等运算器中处理。</li>
+<li>存储结果：将结果存回存储单元。</li>
+</ol>
+<p><img src="../img/计组.assets/image-20260303205118367.png" srcset="/img/loading.gif" lazyload alt="image-20260303205118367"></p>
+<p><strong>指令处理数据的方式</strong></p>
+<ul>
+<li>存储器—存储器型：它直接从内存中读取数据，原地处理完（比如做个加法），然后直接写回内存。</li>
+<li>寄存器—存储器型：一条指令可以处理两个数据，其中一个在内存里，另一个在 CPU 内部的寄存器里。结果可以存回内存或寄存器。</li>
+<li>寄存器—寄存器型：只能对寄存器的内容进行操作，Load/Store 型架构，如ARM和MIPS CPU体系架构</li>
+</ul>
+<h2 id="存储层次"><a href="#存储层次" class="headerlink" title="存储层次"></a>存储层次</h2><ul>
+<li>寄存器: 存放处理器的工作数据</li>
+<li>Cache: 缓存常用数据的快速存储器</li>
+<li>DRAM: 存放工作数据</li>
+<li>硬盘: 保存程序和数据</li>
+</ul>
+<p><img src="../img/计组.assets/image-20260305190935614.png" srcset="/img/loading.gif" lazyload alt="image-20260305190935614"></p>
+<p>总线：连接计算机功能部分，用于数据传输</p>
+<ul>
+<li>位宽：总线能够同时传输的并行数据通路的数量</li>
+<li>带宽：衡量信息通过总线传输速率的指标，通常用“字节/秒”或“位/秒”表示。</li>
+<li>延迟：等待时间，从发出数据传输请求到实际开始传输之间。</li>
+</ul>
+<h2 id="存储程序计算机"><a href="#存储程序计算机" class="headerlink" title="存储程序计算机"></a>存储程序计算机</h2><h3 id="存储程序计算机结构"><a href="#存储程序计算机结构" class="headerlink" title="存储程序计算机结构"></a><strong>存储程序计算机结构</strong></h3><p><img src="../img/计组.assets/image-20260307213419778.png" srcset="/img/loading.gif" lazyload alt="image-20260307213419778"></p>
+<p>解释：</p>
+<ul>
+<li>高速暂存寄存器（scratchpad register）</li>
+<li>存储器地址寄存器（MAR）：保存了读或写操作正在访问的存储单元的地址</li>
+<li>存储器数据寄存器（MBR）：保存了读或写操作正在访问的存储器的数据</li>
+<li>指令寄存器（IR）：存放当前正在执行的指令</li>
+<li>程序计数器（program counter）：包含下一条将要被执行的指令的地址</li>
+<li>循环计数器（Loop Counter）: 用来记录循环执行的次数</li>
+<li>寄存器文件（r0-r7）：存放临时文件</li>
+</ul>
+<p><strong>三种指令格式</strong></p>
+<p><img src="../img/计组.assets/image-20260305200620812.png" srcset="/img/loading.gif" lazyload alt="image-20260305200620812"></p>
+<p>寄存器的可见性</p>
+<ul>
+<li>通用寄存器（r0 r1…r15）:存放临时数据</li>
+<li>特殊功能寄存器</li>
+<li>不可见寄存器</li>
+</ul>
+<h3 id="流控制"><a href="#流控制" class="headerlink" title="流控制"></a><strong>流控制</strong></h3><p><strong>条件码寄存器</strong>（CCR）</p>
+<p>四个标志位</p>
+<ul>
+<li><strong>Z (Zero) 零标志</strong>：如果运算结果等于 $0$，则 $Z=1$；否则 $Z=0$。</li>
+<li><strong>N (Negative) 负标志</strong>：如果运算结果是负数（最高位为 $1$），则 $N=1$。</li>
+<li><strong>V (Overflow) 溢出标志</strong>：如果运算超出了寄存器能表示的范围（比如两个正数相加变成负数），则 $V=1$。</li>
+<li><strong>C (Carry) 进位标志</strong>：如果运算产生了进位（加法）或借位（减法），则 $C=1$。</li>
+</ul>
+<h3 id="ISA的组成"><a href="#ISA的组成" class="headerlink" title="ISA的组成"></a>ISA的组成</h3><ul>
+<li>寄存器集</li>
+<li>寻址方式</li>
+<li>指令格式</li>
+</ul>
+<p><strong>寄存器编码</strong></p>
+<ul>
+<li>实现片上存储</li>
+<li>访问便捷性和相应时间</li>
+</ul>
+<p><img src="../img/计组.assets/image-20260308111819204.png" srcset="/img/loading.gif" lazyload alt="image-20260308111819204"></p>
+<p><strong>形式地址 ($A$)</strong>：指令字中直接给出的地址码。</p>
+<p><strong>有效地址 ($EA$)</strong>：操作数在内存中的真实物理地址。</p>
+<h4 id="寻址方式"><a href="#寻址方式" class="headerlink" title="寻址方式"></a><strong>寻址方式</strong></h4><ul>
+<li><p>立即数寻址 </p>
+</li>
+<li><p>直接寻址  $EA = A$</p>
+</li>
+<li><p>间接寻址 $EA = (A)$</p>
+</li>
+</ul>
+<p><strong>按字节编址</strong>：是指内存中的每一个<strong>字节（Byte，即 8 位）</strong>都有一个唯一的地址编号。</p>
+<p><strong>按字编址</strong>：每个地址编号对应 <strong>1 个字 (Word)</strong>。</p>
+<h4 id="数据对齐"><a href="#数据对齐" class="headerlink" title="数据对齐"></a>数据对齐</h4><p>大小端（Endianness）<strong>决定了这些字节在内存地址里的</strong>排列顺序</p>
+<ul>
+<li><p><strong>大端方式 (Big-Endian)</strong>：把数据的<strong>高位字节</strong>存放在内存的<strong>低地址</strong>端</p>
+</li>
+<li><p><strong>小端方式 (Little-Endian)</strong>：把数据的<strong>低位字节</strong>存放在内存的<strong>低地址</strong>端</p>
+</li>
+</ul>
+<h3 id="Cache"><a href="#Cache" class="headerlink" title="Cache"></a>Cache</h3><h4 id="Cache设计"><a href="#Cache设计" class="headerlink" title="Cache设计"></a>Cache设计</h4><p><img src="../img/计组.assets/image-20260314105729040.png" srcset="/img/loading.gif" lazyload alt="image-20260314105729040"></p>
+<p><strong>规则</strong></p>
+<ul>
+<li>主存块的大小与cache 的数据区的块一致</li>
+<li>一个cache块只能存一个主存块</li>
+</ul>
+<p><strong>主存映射方式</strong></p>
+<ul>
+<li><strong>直接映射</strong>：只能映射到 <strong>唯一一个</strong> Cache 块</li>
+<li>MM 64B, block size 4B</li>
+</ul>
+<p><img src="../img/计组.assets/image-20260312213551549.png" srcset="/img/loading.gif" lazyload alt="image-20260312213551549"></p>
+<p>tags 标记位，映射到cache的行号，offset块内地址</p>
+<ul>
+<li><strong>全相联映射：可以映射到 </strong>任意一个Cache 块</li>
+<li><strong>组相联映射：只能映射到 </strong>某一组中的任意一个Cache 块</li>
+</ul>
+<p><strong>计算</strong></p>
+<ul>
+<li>算块数 （块内地址位数）</li>
+</ul>
+<script type="math/tex; mode=display">
+\text{Cache块数}=\frac{\text{Cache容量}}{块大小}</script><ul>
+<li><p>算组数（ k 路组相联）</p>
+<script type="math/tex; mode=display">
+\text{组数}=\frac{\text{Cache块数}}{k}</script><p>​    全相联（1组）<br>​    直接映射（组数 = Cache块数）</p>
+</li>
+<li><p>主存块地址到缓存组索引的计算公式为</p>
+</li>
+</ul>
+<script type="math/tex; mode=display">
+\text{组号} = \text{主存块号} \bmod \text{组数}</script><p><strong>未命中类型</strong></p>
+<ul>
+<li>Compulsory Miss</li>
+<li>Conflict Miss( Collision, Interference)</li>
+<li>Capacity Miss</li>
+</ul>
+<p><strong>缓存一致性</strong></p>
+<p>共享资源数据存储在多个缓存中</p>
+<p>问题：更新其中一个缓存中的共享数据，保证所有缓存数据的一致性</p>
+<p>术语：</p>
+<ul>
+<li>modified</li>
+<li>shared</li>
+<li>invalid</li>
+<li>exclusive</li>
+<li>owned</li>
+<li>forward</li>
+</ul>
+<p><strong>单个cache</strong></p>
+<p><strong>写命中</strong></p>
+<ul>
+<li>write through: 把所有缓存中和主存中的数据修改</li>
+<li>write back: 修改缓存块数据的值，替换时才更新主存（一位脏位）</li>
+</ul>
+<p><strong>写不命中</strong></p>
+<ul>
+<li>write allocate: 物理地址对应主存块被 加载 到 cache 块中</li>
+<li>write unallocate:不加载 主存块至 cache 中，直接更新主存块，只有当执行读操作时才将主存块加载进入 cache 块</li>
+</ul>
+<p><strong>缓存一致性协议(多个cache之间)</strong></p>
+<ul>
+<li>snooping-based protocol</li>
+<li>directory-based protocol</li>
+</ul>
+<p><strong>替换算法</strong></p>
+<p><strong>LRU 最近最少使用</strong>：替换这组里最久没被访问的那一个块。</p>
+<p><strong>FIFO 先进先出</strong>：最早进入缓存的那一个最先被替换。</p>
+<h3 id="主存储器"><a href="#主存储器" class="headerlink" title="主存储器"></a>主存储器</h3><ul>
+<li>RAM（SRAM, DRAM）</li>
+<li>ROM</li>
+</ul>
+<p>随机存储器（RAM）：一种使用随机存取方式的存储器设备</p>
+<p>随机存取：任意位置的数据都能在<strong>相同时间</strong>快速访问（RAM ROM都可以）</p>
+<p>DRAM 读取是<strong>破坏性读取</strong></p>
+<p>DRAM刷新：定期重新给电容充电，否则 1 会变成 0。（按行读取）</p>
+<p>刷新方式：</p>
+<ul>
+<li><strong>集中刷新</strong>（Burst Refresh），暂停数据访问，在短时间内快速 <strong>刷新所有行</strong>，效率高但延迟大；</li>
+<li><strong>分散刷新</strong>（Distributed Refresh）：每隔一定时间刷新一行。</li>
+<li><strong>异步刷新</strong>（Asynchronous Refresh），由外部控制器根据需要触发刷新，灵活但依赖控制器设计</li>
+</ul>
+<h2 id="计算机算术"><a href="#计算机算术" class="headerlink" title="计算机算术"></a>计算机算术</h2><p><strong>字 (Word)</strong> ：指 CPU 一次性能够处理的数据长度</p>
+<p><strong>位模式</strong>——信息表示</p>
+<ul>
+<li>指令</li>
+<li>数量</li>
+<li>字符</li>
+</ul>
+<p><strong>无符号整数</strong>的机器码是原码</p>
+<p><strong>补码（Two’s Complement）</strong> 是计算机中表示 <strong>有符号整数</strong> 的方法。</p>
+<p>0为正数，1为负数</p>
+<p>正数补码 = 原码</p>
+<p>负数补码 = 二进制反码 + 1 </p>
+<p>n 位补码表示范围：$[-2^{n-1}, 2^{n-1}-1]$<br><strong>优点：</strong></p>
+<ul>
+<li>只有一个0</li>
+<li>加减法运算统一</li>
+<li>符号位可以参与运算</li>
+<li>运算规则简单</li>
+</ul>
+<p><strong>易错点：</strong></p>
+<ul>
+<li>减法必须变加法</li>
+<li>最高位进位丢弃</li>
+<li>最小数没有相反数</li>
+</ul>
+<p><strong>原码特点：</strong></p>
+<ul>
+<li>符号位独立于数值位</li>
+<li>正负数的数值位相同</li>
+<li>运算复杂（需要判断符号）</li>
+<li>存在+0和-0两个零</li>
+</ul>
+<h2 id="IEEE浮点数"><a href="#IEEE浮点数" class="headerlink" title="IEEE浮点数"></a>IEEE浮点数</h2><p><strong>浮点数的组成</strong></p>
+<p><img src="../img/计组.assets/image-20260306195637139.png" srcset="/img/loading.gif" lazyload alt="image-20260306195637139"></p>
+<p><strong>规格化的情况：</strong></p>
+<p>一个非0的IEEE 754浮点数可被定义为：</p>
+<script type="math/tex; mode=display">
+X = (-1)^S \times 2^{E-B} \times 1.F</script><ul>
+<li>X为真值</li>
+<li>符号位（ S）：1位</li>
+<li>阶码/偏置指数（E）：8位</li>
+<li>偏置量（B）：单精度127，双精度1023</li>
+<li>尾数的小数部分（F）：23位</li>
+</ul>
+<p><strong>非规格化</strong>：</p>
+<script type="math/tex; mode=display">
+X = (-1)^S \times 2^{1-B} \times 0.F</script><ul>
+<li>E = 0时，出现非规格化</li>
+<li></li>
+</ul>
+<p>E = 0 和 E = 255特例分别用于表示浮点0、非规格化小数、正或负无穷大、NaN</p>
+<p><img src="../img/计组.assets/image-20260306123034682.png" srcset="/img/loading.gif" lazyload alt="image-20260306123034682"></p>
+<p><strong>IEEE 754 单精度浮点数转换</strong></p>
+<ol>
+<li><strong>定符号 ($S$)</strong>：正数 $S=0$，负数 $S=1$。</li>
+<li><strong>转二进制并规格化</strong>：将绝对值转为二进制，移动小数点写成 $1.F \times 2^e$ 的形式，其中 $e$ 是真实指数。</li>
+<li><strong>算阶码 ($E$)</strong>：用真实指数 $e + 127$（偏置值），结果转为 8 位二进制。</li>
+<li><strong>填尾数 ($M$)</strong>：取 $1.F$ 小数点后的 $F$ 部分，在右边补 $0$ 凑足 23 位。</li>
+<li><strong>拼凑并转换</strong>：按 $S(1位) + E(8位) + M(23位)$ 顺序拼接，每 4 位一组转为十六进制。</li>
+</ol>
+<p><strong>类型转换</strong></p>
+<ul>
+<li>显式类型转换</li>
+<li>隐式类型转换：<strong>低精度</strong>类型会被提升到<strong>高精度</strong>类型</li>
+</ul>
+<p><img src="../img/计组.assets/image-20260307095907702.png" srcset="/img/loading.gif" lazyload alt="image-20260307095907702"></p>
+<p><strong>符号位扩展</strong></p>
+<ul>
+<li>如果是<strong>负数</strong>，前面补 1。</li>
+<li>如果是<strong>正数</strong>，前面补 0。</li>
+</ul>
+<p><strong>截断</strong></p>
+<ul>
+<li>高位 =&gt; 低位</li>
+</ul>
+<p>例题：</p>
+<p><img src="../img/计组.assets/image-20260307101810315.png" srcset="/img/loading.gif" lazyload alt="image-20260307101810315"></p>
+<p>过程：</p>
+<ul>
+<li>算补码  0000 0000 0000 0000 1000 0000 0000 1001</li>
+<li>截断为short的16位，得到补码，符号位为 1 ，负数 1000 0000 0000 1001</li>
+<li>算真值（减1 取反）0111 1111 1111 0111 （十进制 32759）</li>
+<li>容器扩大，值不变</li>
+</ul>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" class="category-chain-item">计算机基础</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>计算机组成原理</div>
+      <div>https://mustraitor.github.io/2026/03/20/计组/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>hanyi li</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>March 20, 2026</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Licensed under</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2026/03/20/C/" title="C语言程序设计笔记">
+                        <span class="hidden-mobile">C语言程序设计笔记</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Table of Contents</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    function isExpandAllEnabled() {
+      return CONFIG.toc && CONFIG.toc.expand_all === true;
+    }
+    function expandAllToc() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .tocbot-is-collapsed').removeClass('tocbot-is-collapsed');
+    }
+    function updateTocToggle($li, $childList) {
+      var $toggle = $li.children('.toc-toggle');
+      if ($toggle.length === 0) { return; }
+      var collapsed = $childList.hasClass('tocbot-is-collapsed');
+      $toggle
+        .toggleClass('toc-toggle-collapsed', collapsed)
+        .toggleClass('toc-toggle-expanded', !collapsed);
+    }
+    function bindTocToggle() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .toc-list-item').each(function() {
+        var $li = jQuery(this);
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) {
+          if ($li.children('.toc-toggle').length === 0) {
+            $li.prepend('<span class="toc-toggle toc-toggle-placeholder" aria-hidden="true">›</span>');
+          }
+          return;
+        }
+
+        if ($li.children('.toc-toggle').length === 0) {
+          $li.prepend('<span class="toc-toggle toc-toggle-expanded" aria-hidden="true">›</span>');
+        }
+        updateTocToggle($li, $childList);
+      });
+      jQuery('#toc-body').off('click.tocToggle').on('click.tocToggle', '.toc-toggle', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var $li = jQuery(this).parent('.toc-list-item');
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) { return; }
+        $childList.toggleClass('tocbot-is-collapsed');
+        updateTocToggle($li, $childList);
+      });
+      if (!window.__tocToggleObserver) {
+        window.__tocToggleObserver = new MutationObserver(function(mutations) {
+          mutations.forEach(function(mutation) {
+            if (mutation.type !== 'attributes' || mutation.attributeName !== 'class') { return; }
+            var $list = jQuery(mutation.target);
+            var $li = $list.parent('.toc-list-item');
+            if ($li.length === 0) { return; }
+            updateTocToggle($li, $list);
+          });
+        });
+        jQuery('#toc-body ol').each(function() {
+          window.__tocToggleObserver.observe(this, { attributes: true });
+        });
+      }
+    }
+    var tocConfig = Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc);
+    if (isExpandAllEnabled()) {
+      tocConfig.collapseDepth = 6;
+    }
+    window.tocbot.init(tocConfig);
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+    expandAllToc();
+    bindTocToggle();
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+        expandAllToc();
+        bindTocToggle();
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>
