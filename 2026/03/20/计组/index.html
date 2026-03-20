@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html lang="en" data-default-color-scheme=auto>
+<html lang="zh-CN" data-default-color-scheme=auto>
 
 
 
@@ -9,7 +9,7 @@
   <meta charset="UTF-8">
 
   <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
-  <link rel="icon" href="/img/fluid.png">
+  <link rel="icon" href="/img/avatar.png">
   
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
@@ -19,13 +19,13 @@
   <meta name="author" content="hanyi li">
   <meta name="keywords" content="">
   
-    <meta name="description" content="计组计算机体系结构  CPU：实际执行程序的部分 微处理器：单个硅片上上实现的CPU 寄存器：CPU内部用来存放数据的存储单元 时钟：用以生成连续的间隔固定的电脉冲流 指令集体系结构（ISA）： CPU 对程序员（或编译器）提供的“接口规范（程序员可见的）  程序的执行过程  指令集体系结构（ISA）  精简指令集计算机（RISC）：ARM架构  复杂指令集计算机（CISC）：x86架构（Inte">
+    <meta name="description" content="计组  计算机体系结构   CPU：实际执行程序的部分 微处理器：单个硅片上上实现的CPU 寄存器：CPU内部用来存放数据的存储单元 时钟：用以生成连续的间隔固定的电脉冲流 指令集体系结构（ISA）： CPU 对程序员（或编译器）提供的“接口规范（程序员可见的）  程序的执行过程  指令集体系结构（ISA）   精简指令集计算机（RISC）：ARM架构   复杂指令集计算机（CISC）：x86架">
 <meta property="og:type" content="article">
 <meta property="og:title" content="计算机组成原理">
 <meta property="og:url" content="https://mustraitor.github.io/2026/03/20/%E8%AE%A1%E7%BB%84/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="计组计算机体系结构  CPU：实际执行程序的部分 微处理器：单个硅片上上实现的CPU 寄存器：CPU内部用来存放数据的存储单元 时钟：用以生成连续的间隔固定的电脉冲流 指令集体系结构（ISA）： CPU 对程序员（或编译器）提供的“接口规范（程序员可见的）  程序的执行过程  指令集体系结构（ISA）  精简指令集计算机（RISC）：ARM架构  复杂指令集计算机（CISC）：x86架构（Inte">
-<meta property="og:locale" content="en_US">
+<meta property="og:description" content="计组  计算机体系结构   CPU：实际执行程序的部分 微处理器：单个硅片上上实现的CPU 寄存器：CPU内部用来存放数据的存储单元 时钟：用以生成连续的间隔固定的电脉冲流 指令集体系结构（ISA）： CPU 对程序员（或编译器）提供的“接口规范（程序员可见的）  程序的执行过程  指令集体系结构（ISA）   精简指令集计算机（RISC）：ARM架构   复杂指令集计算机（CISC）：x86架">
+<meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://mustraitor.github.io/img/%E8%AE%A1%E7%BB%84.assets/image-20260302202051685-1772454055426-1.png">
 <meta property="og:image" content="https://mustraitor.github.io/img/%E8%AE%A1%E7%BB%84.assets/image-20260302204426625.png">
 <meta property="og:image" content="https://mustraitor.github.io/img/%E8%AE%A1%E7%BB%84.assets/image-20260303200845516.png">
@@ -41,7 +41,7 @@
 <meta property="og:image" content="https://mustraitor.github.io/img/%E8%AE%A1%E7%BB%84.assets/image-20260307095907702.png">
 <meta property="og:image" content="https://mustraitor.github.io/img/%E8%AE%A1%E7%BB%84.assets/image-20260307101810315.png">
 <meta property="article:published_time" content="2026-03-20T12:24:50.384Z">
-<meta property="article:modified_time" content="2026-03-20T13:06:46.178Z">
+<meta property="article:modified_time" content="2026-03-20T14:18:26.232Z">
 <meta property="article:author" content="hanyi li">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://mustraitor.github.io/img/%E8%AE%A1%E7%BB%84.assets/image-20260302202051685-1772454055426-1.png">
@@ -59,6 +59,8 @@
   <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.16.2/katex.min.css" />
 
 
 
@@ -112,7 +114,7 @@
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
-      <strong>Fluid</strong>
+      <strong>hanyi</strong>
     </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
@@ -132,7 +134,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/" target="_self">
                 <i class="iconfont icon-home-fill"></i>
-                <span>Home</span>
+                <span>首页</span>
               </a>
             </li>
           
@@ -144,7 +146,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/archives/" target="_self">
                 <i class="iconfont icon-archive-fill"></i>
-                <span>Archives</span>
+                <span>归档</span>
               </a>
             </li>
           
@@ -156,7 +158,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/categories/" target="_self">
                 <i class="iconfont icon-category-fill"></i>
-                <span>Categories</span>
+                <span>分类</span>
               </a>
             </li>
           
@@ -168,7 +170,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/tags/" target="_self">
                 <i class="iconfont icon-tags-fill"></i>
-                <span>Tags</span>
+                <span>标签</span>
               </a>
             </li>
           
@@ -180,7 +182,19 @@
             <li class="nav-item">
               <a class="nav-link" href="/about/" target="_self">
                 <i class="iconfont icon-user-fill"></i>
-                <span>About</span>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/pictures/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>pictures</span>
               </a>
             </li>
           
@@ -219,7 +233,7 @@
               <a href="/" target="_self">
                 <div class="mobile-grid-item">
                   <i class="iconfont icon-home-fill"></i>
-                  <span>Home</span>
+                  <span>首页</span>
                 </div>
               </a>
             </div>
@@ -233,7 +247,7 @@
               <a href="/archives/" target="_self">
                 <div class="mobile-grid-item">
                   <i class="iconfont icon-archive-fill"></i>
-                  <span>Archives</span>
+                  <span>归档</span>
                 </div>
               </a>
             </div>
@@ -247,7 +261,7 @@
               <a href="/categories/" target="_self">
                 <div class="mobile-grid-item">
                   <i class="iconfont icon-category-fill"></i>
-                  <span>Categories</span>
+                  <span>分类</span>
                 </div>
               </a>
             </div>
@@ -261,7 +275,7 @@
               <a href="/tags/" target="_self">
                 <div class="mobile-grid-item">
                   <i class="iconfont icon-tags-fill"></i>
-                  <span>Tags</span>
+                  <span>标签</span>
                 </div>
               </a>
             </div>
@@ -275,7 +289,21 @@
               <a href="/about/" target="_self">
                 <div class="mobile-grid-item">
                   <i class="iconfont icon-user-fill"></i>
-                  <span>About</span>
+                  <span>关于</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/pictures/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-user-fill"></i>
+                  <span>pictures</span>
                 </div>
               </a>
             </div>
@@ -286,19 +314,19 @@
             <a href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
               <div class="mobile-grid-item">
                 <i class="iconfont icon-search"></i>
-                <span>Search</span>
+                <span>搜索</span>
               </div>
             </a>
           </div>
         
         
           <div class="col-4 mobile-grid-cell" id="mobile-color-toggle-btn"
-               data-label-light="Light"
-               data-label-dark="Dark">
+               data-label-light="开灯"
+               data-label-dark="关灯">
             <a href="javascript:;" aria-label="Color Toggle">
               <div class="mobile-grid-item">
                 <i class="iconfont icon-dark" id="mobile-color-toggle-icon"></i>
-                <span id="mobile-color-toggle-label">Dark</span>
+                <span id="mobile-color-toggle-label">关灯</span>
               </div>
             </a>
           </div>
@@ -329,7 +357,7 @@
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
         <time datetime="2026-03-20 20:24" pubdate>
-          March 20, 2026 pm
+          2026年3月20日 晚上
         </time>
       </span>
     
@@ -340,7 +368,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.5k words
+          3.6k 字
         
       </span>
     
@@ -351,7 +379,7 @@
         
         
         
-          30 mins
+          31 分钟
         
       </span>
     
@@ -395,7 +423,9 @@
             
               <div class="markdown-body">
                 
-                <h1 id="计组"><a href="#计组" class="headerlink" title="计组"></a>计组</h1><h2 id="计算机体系结构"><a href="#计算机体系结构" class="headerlink" title="计算机体系结构"></a>计算机体系结构</h2><p><img src="/img/%E8%AE%A1%E7%BB%84.assets/image-20260302202051685-1772454055426-1.png" srcset="/img/loading.gif" lazyload alt="image-20260302202051685"></p>
+                <h1 id="计组"><a class="markdownIt-Anchor" href="#计组"></a> 计组</h1>
+<h2 id="计算机体系结构"><a class="markdownIt-Anchor" href="#计算机体系结构"></a> 计算机体系结构</h2>
+<p><img src="/img/%E8%AE%A1%E7%BB%84.assets/image-20260302202051685-1772454055426-1.png" srcset="/img/loading.gif" lazyload alt="image-20260302202051685" /></p>
 <ul>
 <li>CPU：实际执行程序的部分</li>
 <li>微处理器：单个硅片上上实现的CPU</li>
@@ -404,19 +434,22 @@
 <li>指令集体系结构（ISA）： CPU 对程序员（或编译器）提供的“接口规范（程序员可见的）</li>
 </ul>
 <p><strong>程序的执行过程</strong></p>
-<p><img src="/../img/%E8%AE%A1%E7%BB%84.assets/image-20260302204426625.png" srcset="/img/loading.gif" lazyload alt="image-20260302204426625"></p>
+<p><img src="/img/%E8%AE%A1%E7%BB%84.assets/image-20260302204426625.png" srcset="/img/loading.gif" lazyload alt="image-20260302204426625" /></p>
 <p><strong>指令集体系结构（ISA）</strong></p>
 <ul>
-<li><p><strong>精简指令集计算机（RISC）</strong>：ARM架构</p>
+<li>
+<p><strong>精简指令集计算机（RISC）</strong>：ARM架构</p>
 </li>
-<li><p><strong>复杂指令集计算机（CISC）</strong>：x86架构（Intel）</p>
+<li>
+<p><strong>复杂指令集计算机（CISC）</strong>：x86架构（Intel）</p>
 </li>
 </ul>
-<h2 id="指令格式"><a href="#指令格式" class="headerlink" title="指令格式"></a>指令格式</h2><ul>
+<h2 id="指令格式"><a class="markdownIt-Anchor" href="#指令格式"></a> 指令格式</h2>
+<ul>
 <li>操作码</li>
 <li>操作数（operand）</li>
 </ul>
-<p><img src="/../img/%E8%AE%A1%E7%BB%84.assets/image-20260303200845516.png" srcset="/img/loading.gif" lazyload alt="image-20260303200845516"></p>
+<p><img src="/img/%E8%AE%A1%E7%BB%84.assets/image-20260303200845516.png" srcset="/img/loading.gif" lazyload alt="image-20260303200845516" /></p>
 <p><strong>计算机指令执行流程：</strong></p>
 <ol>
 <li>读取指令：CPU 根据地址从内存提取指令。</li>
@@ -425,27 +458,30 @@
 <li>执行运算：在加法器等运算器中处理。</li>
 <li>存储结果：将结果存回存储单元。</li>
 </ol>
-<p><img src="/../img/%E8%AE%A1%E7%BB%84.assets/image-20260303205118367.png" srcset="/img/loading.gif" lazyload alt="image-20260303205118367"></p>
+<p><img src="/img/%E8%AE%A1%E7%BB%84.assets/image-20260303205118367.png" srcset="/img/loading.gif" lazyload alt="image-20260303205118367" /></p>
 <p><strong>指令处理数据的方式</strong></p>
 <ul>
 <li>存储器—存储器型：它直接从内存中读取数据，原地处理完（比如做个加法），然后直接写回内存。</li>
 <li>寄存器—存储器型：一条指令可以处理两个数据，其中一个在内存里，另一个在 CPU 内部的寄存器里。结果可以存回内存或寄存器。</li>
-<li>寄存器—寄存器型：只能对寄存器的内容进行操作，Load&#x2F;Store 型架构，如ARM和MIPS CPU体系架构</li>
+<li>寄存器—寄存器型：只能对寄存器的内容进行操作，Load/Store 型架构，如ARM和MIPS CPU体系架构</li>
 </ul>
-<h2 id="存储层次"><a href="#存储层次" class="headerlink" title="存储层次"></a>存储层次</h2><ul>
+<h2 id="存储层次"><a class="markdownIt-Anchor" href="#存储层次"></a> 存储层次</h2>
+<ul>
 <li>寄存器: 存放处理器的工作数据</li>
 <li>Cache: 缓存常用数据的快速存储器</li>
 <li>DRAM: 存放工作数据</li>
 <li>硬盘: 保存程序和数据</li>
 </ul>
-<p><img src="/../img/%E8%AE%A1%E7%BB%84.assets/image-20260305190935614.png" srcset="/img/loading.gif" lazyload alt="image-20260305190935614"></p>
+<p><img src="/img/%E8%AE%A1%E7%BB%84.assets/image-20260305190935614.png" srcset="/img/loading.gif" lazyload alt="image-20260305190935614" /></p>
 <p>总线：连接计算机功能部分，用于数据传输</p>
 <ul>
 <li>位宽：总线能够同时传输的并行数据通路的数量</li>
-<li>带宽：衡量信息通过总线传输速率的指标，通常用“字节&#x2F;秒”或“位&#x2F;秒”表示。</li>
+<li>带宽：衡量信息通过总线传输速率的指标，通常用“字节/秒”或“位/秒”表示。</li>
 <li>延迟：等待时间，从发出数据传输请求到实际开始传输之间。</li>
 </ul>
-<h2 id="存储程序计算机"><a href="#存储程序计算机" class="headerlink" title="存储程序计算机"></a>存储程序计算机</h2><h3 id="存储程序计算机结构"><a href="#存储程序计算机结构" class="headerlink" title="存储程序计算机结构"></a><strong>存储程序计算机结构</strong></h3><p><img src="/../img/%E8%AE%A1%E7%BB%84.assets/image-20260307213419778.png" srcset="/img/loading.gif" lazyload alt="image-20260307213419778"></p>
+<h2 id="存储程序计算机"><a class="markdownIt-Anchor" href="#存储程序计算机"></a> 存储程序计算机</h2>
+<h3 id="存储程序计算机结构"><a class="markdownIt-Anchor" href="#存储程序计算机结构"></a> <strong>存储程序计算机结构</strong></h3>
+<p><img src="/img/%E8%AE%A1%E7%BB%84.assets/image-20260307213419778.png" srcset="/img/loading.gif" lazyload alt="image-20260307213419778" /></p>
 <p>解释：</p>
 <ul>
 <li>高速暂存寄存器（scratchpad register）</li>
@@ -457,22 +493,24 @@
 <li>寄存器文件（r0-r7）：存放临时文件</li>
 </ul>
 <p><strong>三种指令格式</strong></p>
-<p><img src="/../img/%E8%AE%A1%E7%BB%84.assets/image-20260305200620812.png" srcset="/img/loading.gif" lazyload alt="image-20260305200620812"></p>
+<p><img src="/img/%E8%AE%A1%E7%BB%84.assets/image-20260305200620812.png" srcset="/img/loading.gif" lazyload alt="image-20260305200620812" /></p>
 <p>寄存器的可见性</p>
 <ul>
 <li>通用寄存器（r0 r1…r15）:存放临时数据</li>
 <li>特殊功能寄存器</li>
 <li>不可见寄存器</li>
 </ul>
-<h3 id="流控制"><a href="#流控制" class="headerlink" title="流控制"></a><strong>流控制</strong></h3><p><strong>条件码寄存器</strong>（CCR）</p>
+<h3 id="流控制"><a class="markdownIt-Anchor" href="#流控制"></a> <strong>流控制</strong></h3>
+<p><strong>条件码寄存器</strong>（CCR）</p>
 <p>四个标志位</p>
 <ul>
-<li><strong>Z (Zero) 零标志</strong>：如果运算结果等于 $0$，则 $Z&#x3D;1$；否则 $Z&#x3D;0$。</li>
-<li><strong>N (Negative) 负标志</strong>：如果运算结果是负数（最高位为 $1$），则 $N&#x3D;1$。</li>
-<li><strong>V (Overflow) 溢出标志</strong>：如果运算超出了寄存器能表示的范围（比如两个正数相加变成负数），则 $V&#x3D;1$。</li>
-<li><strong>C (Carry) 进位标志</strong>：如果运算产生了进位（加法）或借位（减法），则 $C&#x3D;1$。</li>
+<li><strong>Z (Zero) 零标志</strong>：如果运算结果等于 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span>，则 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Z</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">Z=1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">Z</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>；否则 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Z</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">Z=0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">Z</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span>。</li>
+<li><strong>N (Negative) 负标志</strong>：如果运算结果是负数（最高位为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>），则 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">N=1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>。</li>
+<li><strong>V (Overflow) 溢出标志</strong>：如果运算超出了寄存器能表示的范围（比如两个正数相加变成负数），则 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">V=1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>。</li>
+<li><strong>C (Carry) 进位标志</strong>：如果运算产生了进位（加法）或借位（减法），则 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">C=1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>。</li>
 </ul>
-<h3 id="ISA的组成"><a href="#ISA的组成" class="headerlink" title="ISA的组成"></a>ISA的组成</h3><ul>
+<h3 id="isa的组成"><a class="markdownIt-Anchor" href="#isa的组成"></a> ISA的组成</h3>
+<ul>
 <li>寄存器集</li>
 <li>寻址方式</li>
 <li>指令格式</li>
@@ -482,27 +520,36 @@
 <li>实现片上存储</li>
 <li>访问便捷性和相应时间</li>
 </ul>
-<p><img src="/../img/%E8%AE%A1%E7%BB%84.assets/image-20260308111819204.png" srcset="/img/loading.gif" lazyload alt="image-20260308111819204"></p>
-<p>**形式地址 ($A$)**：指令字中直接给出的地址码。</p>
-<p>**有效地址 ($EA$)**：操作数在内存中的真实物理地址。</p>
-<h4 id="寻址方式"><a href="#寻址方式" class="headerlink" title="寻址方式"></a><strong>寻址方式</strong></h4><ul>
-<li><p>立即数寻址 </p>
-</li>
-<li><p>直接寻址  $EA &#x3D; A$</p>
-</li>
-<li><p>间接寻址 $EA &#x3D; (A)$</p>
-</li>
-</ul>
-<p><strong>按字节编址</strong>：是指内存中的每一个<strong>字节（Byte，即 8 位）</strong>都有一个唯一的地址编号。</p>
-<p><strong>按字编址</strong>：每个地址编号对应 **1 个字 (Word)**。</p>
-<h4 id="数据对齐"><a href="#数据对齐" class="headerlink" title="数据对齐"></a>数据对齐</h4><p>大小端（Endianness）<strong>决定了这些字节在内存地址里的</strong>排列顺序</p>
+<p><img src="/img/%E8%AE%A1%E7%BB%84.assets/image-20260308111819204.png" srcset="/img/loading.gif" lazyload alt="image-20260308111819204" /></p>
+<p><strong>形式地址 (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi></mrow><annotation encoding="application/x-tex">A</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">A</span></span></span></span>)</strong>：指令字中直接给出的地址码。</p>
+<p><strong>有效地址 (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi><mi>A</mi></mrow><annotation encoding="application/x-tex">EA</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mord mathnormal">A</span></span></span></span>)</strong>：操作数在内存中的真实物理地址。</p>
+<h4 id="寻址方式"><a class="markdownIt-Anchor" href="#寻址方式"></a> <strong>寻址方式</strong></h4>
 <ul>
-<li><p><strong>大端方式 (Big-Endian)<strong>：把数据的</strong>高位字节</strong>存放在内存的<strong>低地址</strong>端</p>
+<li>
+<p>立即数寻址</p>
 </li>
-<li><p><strong>小端方式 (Little-Endian)<strong>：把数据的</strong>低位字节</strong>存放在内存的<strong>低地址</strong>端</p>
+<li>
+<p>直接寻址  <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi><mi>A</mi><mo>=</mo><mi>A</mi></mrow><annotation encoding="application/x-tex">EA = A</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">A</span></span></span></span></p>
+</li>
+<li>
+<p>间接寻址 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi><mi>A</mi><mo>=</mo><mo stretchy="false">(</mo><mi>A</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">EA = (A)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal">A</span><span class="mclose">)</span></span></span></span></p>
 </li>
 </ul>
-<h3 id="Cache"><a href="#Cache" class="headerlink" title="Cache"></a>Cache</h3><h4 id="Cache设计"><a href="#Cache设计" class="headerlink" title="Cache设计"></a>Cache设计</h4><p><img src="/../img/%E8%AE%A1%E7%BB%84.assets/image-20260314105729040.png" srcset="/img/loading.gif" lazyload alt="image-20260314105729040"></p>
+<p><strong>按字节编址</strong>：是指内存中的每一个**字节（Byte，即 8 位）**都有一个唯一的地址编号。</p>
+<p><strong>按字编址</strong>：每个地址编号对应 <strong>1 个字 (Word)</strong>。</p>
+<h4 id="数据对齐"><a class="markdownIt-Anchor" href="#数据对齐"></a> 数据对齐</h4>
+<p>大小端（Endianness）<strong>决定了这些字节在内存地址里的</strong>排列顺序</p>
+<ul>
+<li>
+<p><strong>大端方式 (Big-Endian)</strong>：把数据的<strong>高位字节</strong>存放在内存的<strong>低地址</strong>端</p>
+</li>
+<li>
+<p><strong>小端方式 (Little-Endian)</strong>：把数据的<strong>低位字节</strong>存放在内存的<strong>低地址</strong>端</p>
+</li>
+</ul>
+<h3 id="cache"><a class="markdownIt-Anchor" href="#cache"></a> Cache</h3>
+<h4 id="cache设计"><a class="markdownIt-Anchor" href="#cache设计"></a> Cache设计</h4>
+<p><img src="/img/%E8%AE%A1%E7%BB%84.assets/image-20260314105729040.png" srcset="/img/loading.gif" lazyload alt="image-20260314105729040" /></p>
 <p><strong>规则</strong></p>
 <ul>
 <li>主存块的大小与cache 的数据区的块一致</li>
@@ -513,7 +560,7 @@
 <li><strong>直接映射</strong>：只能映射到 <strong>唯一一个</strong> Cache 块</li>
 <li>MM 64B, block size 4B</li>
 </ul>
-<p><img src="/../img/%E8%AE%A1%E7%BB%84.assets/image-20260312213551549.png" srcset="/img/loading.gif" lazyload alt="image-20260312213551549"></p>
+<p><img src="/img/%E8%AE%A1%E7%BB%84.assets/image-20260312213551549.png" srcset="/img/loading.gif" lazyload alt="image-20260312213551549" /></p>
 <p>tags 标记位，映射到cache的行号，offset块内地址</p>
 <ul>
 <li>**全相联映射：可以映射到 **任意一个Cache 块</li>
@@ -523,14 +570,20 @@
 <ul>
 <li>算块数 （块内地址位数）</li>
 </ul>
-<p>$$<br>\text{Cache块数}&#x3D;\frac{\text{Cache容量}}{块大小}<br>$$</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>Cache块数</mtext><mo>=</mo><mfrac><mtext>Cache容量</mtext><mtext>块大小</mtext></mfrac></mrow><annotation encoding="application/x-tex">\text{Cache块数}=\frac{\text{Cache容量}}{块大小}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord text"><span class="mord">Cache</span><span class="mord cjk_fallback">块数</span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.05744em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.37144em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord cjk_fallback">块</span><span class="mord cjk_fallback">大</span><span class="mord cjk_fallback">小</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord text"><span class="mord">Cache</span><span class="mord cjk_fallback">容量</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
 <ul>
-<li><p>算组数（ k 路组相联）<br>$$<br>\text{组数}&#x3D;\frac{\text{Cache块数}}{k}<br>$$<br>​	全相联（1组）<br>​	直接映射（组数 &#x3D; Cache块数）</p>
-</li>
-<li><p>主存块地址到缓存组索引的计算公式为</p>
-</li>
+<li>算组数（ k 路组相联）</li>
 </ul>
-<p>$$<br>\text{组号} &#x3D; \text{主存块号} \bmod \text{组数}<br>$$</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>组数</mtext><mo>=</mo><mfrac><mtext>Cache块数</mtext><mi>k</mi></mfrac></mrow><annotation encoding="application/x-tex">\text{组数}=\frac{\text{Cache块数}}{k}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord text"><span class="mord cjk_fallback">组数</span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.05744em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.37144em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03148em;">k</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord text"><span class="mord">Cache</span><span class="mord cjk_fallback">块数</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
+<p>​	全相联（1组）<br />
+​	直接映射（组数 = Cache块数）</p>
+<ul>
+<li>主存块地址到缓存组索引的计算公式为</li>
+</ul>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>组号</mtext><mo>=</mo><mtext>主存块号</mtext><mtext> </mtext><mo lspace="0.22em" rspace="0.22em"><mrow><mi mathvariant="normal">m</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">d</mi></mrow></mo><mtext> </mtext><mtext>组数</mtext></mrow><annotation encoding="application/x-tex">\text{组号} = \text{主存块号} \bmod \text{组数}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord text"><span class="mord cjk_fallback">组号</span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord text"><span class="mord cjk_fallback">主存块号</span></span><span class="mspace" style="margin-right:0.05555555555555555em;"></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin"><span class="mord"><span class="mord mathrm">m</span><span class="mord mathrm">o</span><span class="mord mathrm">d</span></span></span><span class="mspace" style="margin-right:0.05555555555555555em;"></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord text"><span class="mord cjk_fallback">组数</span></span></span></span></span></span></p>
 <p><strong>未命中类型</strong></p>
 <ul>
 <li>Compulsory Miss</li>
@@ -568,7 +621,8 @@
 <p><strong>替换算法</strong></p>
 <p><strong>LRU 最近最少使用</strong>：替换这组里最久没被访问的那一个块。</p>
 <p><strong>FIFO 先进先出</strong>：最早进入缓存的那一个最先被替换。</p>
-<h3 id="主存储器"><a href="#主存储器" class="headerlink" title="主存储器"></a>主存储器</h3><ul>
+<h3 id="主存储器"><a class="markdownIt-Anchor" href="#主存储器"></a> 主存储器</h3>
+<ul>
 <li>RAM（SRAM, DRAM）</li>
 <li>ROM</li>
 </ul>
@@ -582,7 +636,8 @@
 <li><strong>分散刷新</strong>（Distributed Refresh）：每隔一定时间刷新一行。</li>
 <li><strong>异步刷新</strong>（Asynchronous Refresh），由外部控制器根据需要触发刷新，灵活但依赖控制器设计</li>
 </ul>
-<h2 id="计算机算术"><a href="#计算机算术" class="headerlink" title="计算机算术"></a>计算机算术</h2><p><strong>字 (Word)</strong> ：指 CPU 一次性能够处理的数据长度</p>
+<h2 id="计算机算术"><a class="markdownIt-Anchor" href="#计算机算术"></a> 计算机算术</h2>
+<p><strong>字 (Word)</strong> ：指 CPU 一次性能够处理的数据长度</p>
 <p><strong>位模式</strong>——信息表示</p>
 <ul>
 <li>指令</li>
@@ -592,9 +647,10 @@
 <p><strong>无符号整数</strong>的机器码是原码</p>
 <p><strong>补码（Two’s Complement）</strong> 是计算机中表示 <strong>有符号整数</strong> 的方法。</p>
 <p>0为正数，1为负数</p>
-<p>正数补码 &#x3D; 原码</p>
-<p>负数补码 &#x3D; 二进制反码 + 1 </p>
-<p>n 位补码表示范围：$[-2^{n-1}, 2^{n-1}-1]$<br><strong>优点：</strong></p>
+<p>正数补码 = 原码</p>
+<p>负数补码 = 二进制反码 + 1</p>
+<p>n 位补码表示范围：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">[</mo><mo>−</mo><msup><mn>2</mn><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msup><mo separator="true">,</mo><msup><mn>2</mn><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msup><mo>−</mo><mn>1</mn><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">[-2^{n-1}, 2^{n-1}-1]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord">−</span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">]</span></span></span></span><br />
+<strong>优点：</strong></p>
 <ul>
 <li>只有一个0</li>
 <li>加减法运算统一</li>
@@ -614,39 +670,43 @@
 <li>运算复杂（需要判断符号）</li>
 <li>存在+0和-0两个零</li>
 </ul>
-<h2 id="IEEE浮点数"><a href="#IEEE浮点数" class="headerlink" title="IEEE浮点数"></a>IEEE浮点数</h2><p><strong>浮点数的组成</strong></p>
-<p><img src="/../img/%E8%AE%A1%E7%BB%84.assets/image-20260306195637139.png" srcset="/img/loading.gif" lazyload alt="image-20260306195637139"></p>
+<h2 id="ieee浮点数"><a class="markdownIt-Anchor" href="#ieee浮点数"></a> IEEE浮点数</h2>
+<p><strong>浮点数的组成</strong></p>
+<p><img src="/img/%E8%AE%A1%E7%BB%84.assets/image-20260306195637139.png" srcset="/img/loading.gif" lazyload alt="image-20260306195637139" /></p>
 <p><strong>规格化的情况：</strong></p>
 <p>一个非0的IEEE 754浮点数可被定义为：</p>
-<p>$$<br>X &#x3D; (-1)^S \times 2^{E-B} \times 1.F<br>$$</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>X</mi><mo>=</mo><mo stretchy="false">(</mo><mo>−</mo><mn>1</mn><msup><mo stretchy="false">)</mo><mi>S</mi></msup><mo>×</mo><msup><mn>2</mn><mrow><mi>E</mi><mo>−</mo><mi>B</mi></mrow></msup><mo>×</mo><mn>1.</mn><mi>F</mi></mrow><annotation encoding="application/x-tex">X = (-1)^S \times 2^{E-B} \times 1.F
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.1413309999999999em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">−</span><span class="mord">1</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8913309999999999em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05764em;">S</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.974661em;vertical-align:-0.08333em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.891331em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.05764em;">E</span><span class="mbin mtight">−</span><span class="mord mathnormal mtight" style="margin-right:0.05017em;">B</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">.</span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span></span></span></span></span></p>
 <ul>
 <li>X为真值</li>
 <li>符号位（ S）：1位</li>
-<li>阶码&#x2F;偏置指数（E）：8位</li>
+<li>阶码/偏置指数（E）：8位</li>
 <li>偏置量（B）：单精度127，双精度1023</li>
 <li>尾数的小数部分（F）：23位</li>
 </ul>
-<p><strong>非规格化</strong>：<br>$$<br>X &#x3D; (-1)^S \times 2^{1-B} \times 0.F<br>$$</p>
+<p><strong>非规格化</strong>：</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>X</mi><mo>=</mo><mo stretchy="false">(</mo><mo>−</mo><mn>1</mn><msup><mo stretchy="false">)</mo><mi>S</mi></msup><mo>×</mo><msup><mn>2</mn><mrow><mn>1</mn><mo>−</mo><mi>B</mi></mrow></msup><mo>×</mo><mn>0.</mn><mi>F</mi></mrow><annotation encoding="application/x-tex">X = (-1)^S \times 2^{1-B} \times 0.F
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.1413309999999999em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">−</span><span class="mord">1</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8913309999999999em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05764em;">S</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.974661em;vertical-align:-0.08333em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.891331em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span><span class="mbin mtight">−</span><span class="mord mathnormal mtight" style="margin-right:0.05017em;">B</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord">0</span><span class="mord">.</span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span></span></span></span></span></p>
 <ul>
-<li>E &#x3D; 0时，出现非规格化</li>
+<li>E = 0时，出现非规格化</li>
 <li></li>
 </ul>
-<p>E &#x3D; 0 和 E &#x3D; 255特例分别用于表示浮点0、非规格化小数、正或负无穷大、NaN</p>
-<p><img src="/../img/%E8%AE%A1%E7%BB%84.assets/image-20260306123034682.png" srcset="/img/loading.gif" lazyload alt="image-20260306123034682"></p>
+<p>E = 0 和 E = 255特例分别用于表示浮点0、非规格化小数、正或负无穷大、NaN</p>
+<p><img src="/img/%E8%AE%A1%E7%BB%84.assets/image-20260306123034682.png" srcset="/img/loading.gif" lazyload alt="image-20260306123034682" /></p>
 <p><strong>IEEE 754 单精度浮点数转换</strong></p>
 <ol>
-<li>**定符号 ($S$)**：正数 $S&#x3D;0$，负数 $S&#x3D;1$。</li>
-<li><strong>转二进制并规格化</strong>：将绝对值转为二进制，移动小数点写成 $1.F \times 2^e$ 的形式，其中 $e$ 是真实指数。</li>
-<li>**算阶码 ($E$)**：用真实指数 $e + 127$（偏置值），结果转为 8 位二进制。</li>
-<li>**填尾数 ($M$)**：取 $1.F$ 小数点后的 $F$ 部分，在右边补 $0$ 凑足 23 位。</li>
-<li><strong>拼凑并转换</strong>：按 $S(1位) + E(8位) + M(23位)$ 顺序拼接，每 4 位一组转为十六进制。</li>
+<li><strong>定符号 (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi></mrow><annotation encoding="application/x-tex">S</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span></span></span></span>)</strong>：正数 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">S=0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span>，负数 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">S=1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>。</li>
+<li><strong>转二进制并规格化</strong>：将绝对值转为二进制，移动小数点写成 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1.</mn><mi>F</mi><mo>×</mo><msup><mn>2</mn><mi>e</mi></msup></mrow><annotation encoding="application/x-tex">1.F \times 2^e</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord">1</span><span class="mord">.</span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.664392em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">e</span></span></span></span></span></span></span></span></span></span></span> 的形式，其中 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>e</mi></mrow><annotation encoding="application/x-tex">e</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">e</span></span></span></span> 是真实指数。</li>
+<li><strong>算阶码 (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi></mrow><annotation encoding="application/x-tex">E</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span></span></span></span>)</strong>：用真实指数 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>e</mi><mo>+</mo><mn>127</mn></mrow><annotation encoding="application/x-tex">e + 127</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathnormal">e</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">2</span><span class="mord">7</span></span></span></span>（偏置值），结果转为 8 位二进制。</li>
+<li><strong>填尾数 (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi></mrow><annotation encoding="application/x-tex">M</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span></span></span></span>)</strong>：取 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1.</mn><mi>F</mi></mrow><annotation encoding="application/x-tex">1.F</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">.</span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span></span></span></span> 小数点后的 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi></mrow><annotation encoding="application/x-tex">F</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span></span></span></span> 部分，在右边补 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span> 凑足 23 位。</li>
+<li><strong>拼凑并转换</strong>：按 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mo stretchy="false">(</mo><mn>1</mn><mtext>位</mtext><mo stretchy="false">)</mo><mo>+</mo><mi>E</mi><mo stretchy="false">(</mo><mn>8</mn><mtext>位</mtext><mo stretchy="false">)</mo><mo>+</mo><mi>M</mi><mo stretchy="false">(</mo><mn>23</mn><mtext>位</mtext><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">S(1位) + E(8位) + M(23位)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mopen">(</span><span class="mord">1</span><span class="mord cjk_fallback">位</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mopen">(</span><span class="mord">8</span><span class="mord cjk_fallback">位</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mopen">(</span><span class="mord">2</span><span class="mord">3</span><span class="mord cjk_fallback">位</span><span class="mclose">)</span></span></span></span> 顺序拼接，每 4 位一组转为十六进制。</li>
 </ol>
 <p><strong>类型转换</strong></p>
 <ul>
 <li>显式类型转换</li>
 <li>隐式类型转换：<strong>低精度</strong>类型会被提升到<strong>高精度</strong>类型</li>
 </ul>
-<p><img src="/../img/%E8%AE%A1%E7%BB%84.assets/image-20260307095907702.png" srcset="/img/loading.gif" lazyload alt="image-20260307095907702"></p>
+<p><img src="/img/%E8%AE%A1%E7%BB%84.assets/image-20260307095907702.png" srcset="/img/loading.gif" lazyload alt="image-20260307095907702" /></p>
 <p><strong>符号位扩展</strong></p>
 <ul>
 <li>如果是<strong>负数</strong>，前面补 1。</li>
@@ -654,10 +714,10 @@
 </ul>
 <p><strong>截断</strong></p>
 <ul>
-<li>高位 &#x3D;&gt; 低位</li>
+<li>高位 =&gt; 低位</li>
 </ul>
 <p>例题：</p>
-<p><img src="/../img/%E8%AE%A1%E7%BB%84.assets/image-20260307101810315.png" srcset="/img/loading.gif" lazyload alt="image-20260307101810315"></p>
+<p><img src="/img/%E8%AE%A1%E7%BB%84.assets/image-20260307101810315.png" srcset="/img/loading.gif" lazyload alt="image-20260307101810315" /></p>
 <p>过程：</p>
 <ul>
 <li>算补码  0000 0000 0000 0000 1000 0000 0000 1001</li>
@@ -709,26 +769,26 @@
     <div class="license-meta">
       
         <div class="license-meta-item">
-          <div>Author</div>
+          <div>作者</div>
           <div>hanyi li</div>
         </div>
       
       
         <div class="license-meta-item license-meta-date">
-          <div>Posted on</div>
-          <div>March 20, 2026</div>
+          <div>发布于</div>
+          <div>2026年3月20日</div>
         </div>
       
       
       
         <div class="license-meta-item">
-          <div>Licensed under</div>
+          <div>许可协议</div>
           <div>
             
               
               
                 <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
-                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
                     <i class="iconfont icon-cc-by"></i>
                   </span>
                 </a>
@@ -754,7 +814,7 @@
                     
                       <a href="/2026/03/20/C/" title="C语言程序设计笔记">
                         <span class="hidden-mobile">C语言程序设计笔记</span>
-                        <span class="visible-mobile">Next</span>
+                        <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
@@ -775,7 +835,7 @@
     <div id="toc">
   <p class="toc-header">
     <i class="iconfont icon-list"></i>
-    <span>Table of Contents</span>
+    <span>目录</span>
   </p>
   <div class="toc-body" id="toc-body"></div>
 </div>
@@ -812,6 +872,11 @@
   
 
 
+  
+  
+
+
+
 
 
 
@@ -831,7 +896,7 @@
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -839,7 +904,7 @@
       <div class="modal-body mx-3">
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
@@ -1081,7 +1146,7 @@
   
 
   <noscript>
-    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
   </noscript>
 </body>
 </html>

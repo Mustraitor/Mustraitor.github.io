@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html lang="en" data-default-color-scheme=auto>
+<html lang="zh-CN" data-default-color-scheme=auto>
 
 
 
@@ -9,7 +9,7 @@
   <meta charset="UTF-8">
 
   <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
-  <link rel="icon" href="/img/fluid.png">
+  <link rel="icon" href="/img/avatar.png">
   
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
@@ -19,13 +19,13 @@
   <meta name="author" content="hanyi li">
   <meta name="keywords" content="">
   
-    <meta name="description" content="C语言笔记1. 基本语法基本数据类型  int  4B 默认有符号signed  n 位补码表示范围：$[-2^{n-1}, 2^{n-1}-1]$  float  double  long double       符号 代表类型 对应含义    %d Integer 有符号十进制整数。   %s String 字符串。   %c Character 单个字符。   %f Float 浮点数。">
+    <meta name="description" content="C语言笔记  1. 基本语法 基本数据类型   int  4B 默认有符号signed   n 位补码表示范围：[−2n−1,2n−1−1][-2^{n-1}, 2^{n-1}-1][−2n−1,2n−1−1]   float   double   long double       符号 代表类型 对应含义     %d Integer 有符号十进制整数。   %s String 字符串。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C语言程序设计笔记">
 <meta property="og:url" content="https://mustraitor.github.io/2026/03/20/C/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="C语言笔记1. 基本语法基本数据类型  int  4B 默认有符号signed  n 位补码表示范围：$[-2^{n-1}, 2^{n-1}-1]$  float  double  long double       符号 代表类型 对应含义    %d Integer 有符号十进制整数。   %s String 字符串。   %c Character 单个字符。   %f Float 浮点数。">
-<meta property="og:locale" content="en_US">
+<meta property="og:description" content="C语言笔记  1. 基本语法 基本数据类型   int  4B 默认有符号signed   n 位补码表示范围：[−2n−1,2n−1−1][-2^{n-1}, 2^{n-1}-1][−2n−1,2n−1−1]   float   double   long double       符号 代表类型 对应含义     %d Integer 有符号十进制整数。   %s String 字符串。">
+<meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://mustraitor.github.io/img/C.assets/image-20260307095907702.png">
 <meta property="og:image" content="https://mustraitor.github.io/img/C.assets/image-20260318103120910.png">
 <meta property="og:image" content="https://mustraitor.github.io/img/C.assets/image-20260318184322471.png">
@@ -34,7 +34,7 @@
 <meta property="og:image" content="https://mustraitor.github.io/img/C.assets/image-20260319201133887.png">
 <meta property="og:image" content="https://mustraitor.github.io/img/C.assets/image-20260320102400049.png">
 <meta property="article:published_time" content="2026-03-20T12:12:29.144Z">
-<meta property="article:modified_time" content="2026-03-20T12:43:22.485Z">
+<meta property="article:modified_time" content="2026-03-20T14:17:23.493Z">
 <meta property="article:author" content="hanyi li">
 <meta property="article:tag" content="C语言">
 <meta property="article:tag" content="408考研">
@@ -54,6 +54,8 @@
   <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.16.2/katex.min.css" />
 
 
 
@@ -107,7 +109,7 @@
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
-      <strong>Fluid</strong>
+      <strong>hanyi</strong>
     </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
@@ -127,7 +129,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/" target="_self">
                 <i class="iconfont icon-home-fill"></i>
-                <span>Home</span>
+                <span>首页</span>
               </a>
             </li>
           
@@ -139,7 +141,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/archives/" target="_self">
                 <i class="iconfont icon-archive-fill"></i>
-                <span>Archives</span>
+                <span>归档</span>
               </a>
             </li>
           
@@ -151,7 +153,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/categories/" target="_self">
                 <i class="iconfont icon-category-fill"></i>
-                <span>Categories</span>
+                <span>分类</span>
               </a>
             </li>
           
@@ -163,7 +165,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/tags/" target="_self">
                 <i class="iconfont icon-tags-fill"></i>
-                <span>Tags</span>
+                <span>标签</span>
               </a>
             </li>
           
@@ -175,7 +177,19 @@
             <li class="nav-item">
               <a class="nav-link" href="/about/" target="_self">
                 <i class="iconfont icon-user-fill"></i>
-                <span>About</span>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/pictures/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>pictures</span>
               </a>
             </li>
           
@@ -214,7 +228,7 @@
               <a href="/" target="_self">
                 <div class="mobile-grid-item">
                   <i class="iconfont icon-home-fill"></i>
-                  <span>Home</span>
+                  <span>首页</span>
                 </div>
               </a>
             </div>
@@ -228,7 +242,7 @@
               <a href="/archives/" target="_self">
                 <div class="mobile-grid-item">
                   <i class="iconfont icon-archive-fill"></i>
-                  <span>Archives</span>
+                  <span>归档</span>
                 </div>
               </a>
             </div>
@@ -242,7 +256,7 @@
               <a href="/categories/" target="_self">
                 <div class="mobile-grid-item">
                   <i class="iconfont icon-category-fill"></i>
-                  <span>Categories</span>
+                  <span>分类</span>
                 </div>
               </a>
             </div>
@@ -256,7 +270,7 @@
               <a href="/tags/" target="_self">
                 <div class="mobile-grid-item">
                   <i class="iconfont icon-tags-fill"></i>
-                  <span>Tags</span>
+                  <span>标签</span>
                 </div>
               </a>
             </div>
@@ -270,7 +284,21 @@
               <a href="/about/" target="_self">
                 <div class="mobile-grid-item">
                   <i class="iconfont icon-user-fill"></i>
-                  <span>About</span>
+                  <span>关于</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/pictures/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-user-fill"></i>
+                  <span>pictures</span>
                 </div>
               </a>
             </div>
@@ -281,19 +309,19 @@
             <a href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
               <div class="mobile-grid-item">
                 <i class="iconfont icon-search"></i>
-                <span>Search</span>
+                <span>搜索</span>
               </div>
             </a>
           </div>
         
         
           <div class="col-4 mobile-grid-cell" id="mobile-color-toggle-btn"
-               data-label-light="Light"
-               data-label-dark="Dark">
+               data-label-light="开灯"
+               data-label-dark="关灯">
             <a href="javascript:;" aria-label="Color Toggle">
               <div class="mobile-grid-item">
                 <i class="iconfont icon-dark" id="mobile-color-toggle-icon"></i>
-                <span id="mobile-color-toggle-label">Dark</span>
+                <span id="mobile-color-toggle-label">关灯</span>
               </div>
             </a>
           </div>
@@ -324,7 +352,7 @@
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
         <time datetime="2026-03-20 20:12" pubdate>
-          March 20, 2026 pm
+          2026年3月20日 晚上
         </time>
       </span>
     
@@ -335,7 +363,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.3k words
+          1.3k 字
         
       </span>
     
@@ -346,7 +374,7 @@
         
         
         
-          11 mins
+          11 分钟
         
       </span>
     
@@ -390,20 +418,27 @@
             
               <div class="markdown-body">
                 
-                <h1 id="C语言笔记"><a href="#C语言笔记" class="headerlink" title="C语言笔记"></a>C语言笔记</h1><h2 id="1-基本语法"><a href="#1-基本语法" class="headerlink" title="1. 基本语法"></a>1. 基本语法</h2><p><strong>基本数据类型</strong></p>
+                <h1 id="c语言笔记"><a class="markdownIt-Anchor" href="#c语言笔记"></a> C语言笔记</h1>
+<h2 id="1-基本语法"><a class="markdownIt-Anchor" href="#1-基本语法"></a> 1. 基本语法</h2>
+<p><strong>基本数据类型</strong></p>
 <ul>
-<li><p>int  4B 默认有符号signed</p>
+<li>
+<p>int  4B 默认有符号signed</p>
 </li>
-<li><p>n 位补码表示范围：$[-2^{n-1}, 2^{n-1}-1]$</p>
+<li>
+<p>n 位补码表示范围：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">[</mo><mo>−</mo><msup><mn>2</mn><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msup><mo separator="true">,</mo><msup><mn>2</mn><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msup><mo>−</mo><mn>1</mn><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">[-2^{n-1}, 2^{n-1}-1]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord">−</span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">]</span></span></span></span></p>
 </li>
-<li><p>float</p>
+<li>
+<p>float</p>
 </li>
-<li><p>double</p>
+<li>
+<p>double</p>
 </li>
-<li><p>long double</p>
+<li>
+<p>long double</p>
 </li>
 </ul>
-<p><img src="/../img/C.assets/image-20260307095907702.png" srcset="/img/loading.gif" lazyload alt="image-20260307095907702"></p>
+<p><img src="/img/C.assets/image-20260307095907702.png" srcset="/img/loading.gif" lazyload alt="image-20260307095907702" /></p>
 <table>
 <thead>
 <tr>
@@ -412,7 +447,8 @@
 <th><strong>对应含义</strong></th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td><strong><code>%d</code></strong></td>
 <td><strong>Integer</strong></td>
 <td><strong>有符号十进制整数</strong>。</td>
@@ -442,12 +478,15 @@
 <td><strong>Pointer</strong></td>
 <td><strong>指针</strong>。</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <p>全局变量初始值为0</p>
 <ul>
-<li><p><strong>定义 (Definition)<strong>：编译器为</strong>变量分配内存</strong>。例如 <code>int a = 10;</code>，这会在内存的数据段（Data Segment）占 4 个字节。</p>
+<li>
+<p><strong>定义 (Definition)</strong>：编译器为<strong>变量分配内存</strong>。例如 <code>int a = 10;</code>，这会在内存的数据段（Data Segment）占 4 个字节。</p>
 </li>
-<li><p>**声明 (Declaration)**：告诉编译器变量的类型和名字，但不分配内存。</p>
+<li>
+<p><strong>声明 (Declaration)</strong>：告诉编译器变量的类型和名字，但不分配内存。</p>
 </li>
 </ul>
 <p><strong>extern</strong> 修饰符的作用就是<strong>声明</strong></p>
@@ -457,7 +496,6 @@
 <li>修饰局部变量</li>
 </ul>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-type">int</span> <span class="hljs-title function_">func</span><span class="hljs-params">()</span> &#123;<br>    <span class="hljs-type">static</span> <span class="hljs-type">int</span> count = <span class="hljs-number">0</span>; #只初始化一次<br>    count++;<br>    <span class="hljs-keyword">return</span> count;<br>&#125;<br></code></pre></td></tr></table></figure>
-
 <ul>
 <li>修饰全局变量，修饰函数</li>
 </ul>
@@ -469,7 +507,8 @@
 <th>作用</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>static 局部变量</td>
 <td>生命周期变长（函数调用后不销毁）</td>
 </tr>
@@ -481,7 +520,8 @@
 <td>static 函数</td>
 <td>限制作用域（仅当前文件）</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <p>#define 宏定义</p>
 <p>作用：在编译之前，由预处理器进行文本替换的工具</p>
 <p>const  常量</p>
@@ -492,10 +532,9 @@
 <ul>
 <li>&amp;  取地址运算符</li>
 </ul>
-<p>初始化 &#x3D; 在变量创建（声明）时就给它一个初始值</p>
-<p><img src="/../img/C.assets/image-20260318103120910.png" srcset="/img/loading.gif" lazyload alt="image-20260318103120910"></p>
+<p>初始化 = 在变量创建（声明）时就给它一个初始值</p>
+<p><img src="/img/C.assets/image-20260318103120910.png" srcset="/img/loading.gif" lazyload alt="image-20260318103120910" /></p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-type">static</span> <span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; <span class="hljs-meta"># bss段</span><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span> &#123;<br>    <span class="hljs-type">static</span> <span class="hljs-type">int</span> i; #局部变量<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d&quot;</span>,i)<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br><br></code></pre></td></tr></table></figure>
-
 <ul>
 <li>static 修饰 初始值为0</li>
 <li>全局变量 初始值为0</li>
@@ -504,40 +543,44 @@
 <p>词法分析器：把代码拆成“有意义的最小单位（Token）</p>
 <p><strong>位运算</strong></p>
 <ul>
-<li><p><strong>&amp;</strong>  与运算（有0出0，全1出1）</p>
+<li>
+<p><strong>&amp;</strong>  与运算（有0出0，全1出1）</p>
 </li>
-<li><p><strong>|</strong>   或运算（有1出1，全0出0）</p>
+<li>
+<p><strong>|</strong>   或运算（有1出1，全0出0）</p>
 </li>
-<li><p><strong>~</strong>   非运算</p>
+<li>
+<p><strong>~</strong>   非运算</p>
 </li>
-<li><p>&lt;&lt; 左移运算符</p>
+<li>
+<p>&lt;&lt; 左移运算符</p>
 </li>
 </ul>
 <p>左移相当于 left * 2^right, 移动后补0</p>
-<p><img src="/../img/C.assets/image-20260318184322471.png" srcset="/img/loading.gif" lazyload alt="image-20260318184322471"></p>
+<p><img src="/img/C.assets/image-20260318184322471.png" srcset="/img/loading.gif" lazyload alt="image-20260318184322471" /></p>
 <ul>
 <li>右移运算符 &gt;&gt;</li>
 </ul>
-<p>右移相当于  left &#x2F; 2^right, 移动后补0</p>
-<p><img src="/../img/C.assets/image-20260318184718745.png" srcset="/img/loading.gif" lazyload alt="image-20260318184718745"></p>
+<p>右移相当于  left / 2^right, 移动后补0</p>
+<p><img src="/img/C.assets/image-20260318184718745.png" srcset="/img/loading.gif" lazyload alt="image-20260318184718745" /></p>
 <ul>
-<li><strong>^</strong> 异或运算XOR（Exclusive OR） </li>
+<li><strong>^</strong> 异或运算XOR（Exclusive OR）</li>
 <li>printf()函数有返回值，成功返回打印的字符数</li>
 </ul>
-<h3 id="指针（pointer）"><a href="#指针（pointer）" class="headerlink" title="指针（pointer）"></a><strong>指针（pointer）</strong></h3><ul>
+<h3 id="指针pointer"><a class="markdownIt-Anchor" href="#指针pointer"></a> <strong>指针（pointer）</strong></h3>
+<ul>
 <li>表示地址</li>
 <li>*的作用：声明，解引用</li>
 </ul>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs C"><span class="hljs-type">int</span> x = <span class="hljs-number">5</span>;<br><span class="hljs-type">int</span> *ptr;             <span class="hljs-comment">//定义指针, ptr是指针</span><br>ptr = &amp;x;             <span class="hljs-comment">//指针指向x的地址，指针存储x的地址</span><br><span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d&quot;</span>,*ptr);    <span class="hljs-comment">// 5 地址里的值</span><br><span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d&quot;</span>,ptr);     <span class="hljs-comment">// x的地址</span><br><span class="hljs-comment">// is equivalent to</span><br><span class="hljs-type">int</span> x = <span class="hljs-number">5</span>, *ptr = &amp;X<br></code></pre></td></tr></table></figure>
-
-<p><img src="/../img/C.assets/image-20260319193048845.png" srcset="/img/loading.gif" lazyload alt="image-20260319193048845"></p>
+<p><img src="/img/C.assets/image-20260319193048845.png" srcset="/img/loading.gif" lazyload alt="image-20260319193048845" /></p>
 <ul>
 <li>指针未指向时，不允许赋值</li>
 <li>返回指针的函数，不能返回局部变量的地址</li>
 </ul>
-<p><img src="/../img/C.assets/image-20260319201133887.png" srcset="/img/loading.gif" lazyload alt="image-20260319201133887"></p>
-<p><strong>指针移动</strong> </p>
-<p><img src="/../img/C.assets/image-20260320102400049.png" srcset="/img/loading.gif" lazyload alt="image-20260320102400049"></p>
+<p><img src="/img/C.assets/image-20260319201133887.png" srcset="/img/loading.gif" lazyload alt="image-20260319201133887" /></p>
+<p><strong>指针移动</strong></p>
+<p><img src="/img/C.assets/image-20260320102400049.png" srcset="/img/loading.gif" lazyload alt="image-20260320102400049" /></p>
 <ul>
 <li>指针移动到下一个元素，并不是直接 +1 还要看数据类型（int 占4字节）</li>
 </ul>
@@ -594,26 +637,26 @@
     <div class="license-meta">
       
         <div class="license-meta-item">
-          <div>Author</div>
+          <div>作者</div>
           <div>hanyi li</div>
         </div>
       
       
         <div class="license-meta-item license-meta-date">
-          <div>Posted on</div>
-          <div>March 20, 2026</div>
+          <div>发布于</div>
+          <div>2026年3月20日</div>
         </div>
       
       
       
         <div class="license-meta-item">
-          <div>Licensed under</div>
+          <div>许可协议</div>
           <div>
             
               
               
                 <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
-                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
                     <i class="iconfont icon-cc-by"></i>
                   </span>
                 </a>
@@ -636,7 +679,7 @@
                       <a href="/2026/03/20/%E8%AE%A1%E7%BB%84/" title="计算机组成原理">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">计算机组成原理</span>
-                        <span class="visible-mobile">Previous</span>
+                        <span class="visible-mobile">上一篇</span>
                       </a>
                     
                   </article>
@@ -645,7 +688,7 @@
                     
                       <a href="/2026/03/20/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" title="操作系统">
                         <span class="hidden-mobile">操作系统</span>
-                        <span class="visible-mobile">Next</span>
+                        <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
@@ -666,7 +709,7 @@
     <div id="toc">
   <p class="toc-header">
     <i class="iconfont icon-list"></i>
-    <span>Table of Contents</span>
+    <span>目录</span>
   </p>
   <div class="toc-body" id="toc-body"></div>
 </div>
@@ -703,6 +746,11 @@
   
 
 
+  
+  
+
+
+
 
 
 
@@ -722,7 +770,7 @@
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -730,7 +778,7 @@
       <div class="modal-body mx-3">
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
@@ -972,7 +1020,7 @@
   
 
   <noscript>
-    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
   </noscript>
 </body>
 </html>
