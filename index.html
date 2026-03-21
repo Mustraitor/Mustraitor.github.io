@@ -28,6 +28,8 @@
 <meta name="twitter:card" content="summary_large_image">
   
   
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
   
   <title>Hexo</title>
 
@@ -57,11 +59,15 @@
 
 
 
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"mustraitor.github.io","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"mustraitor.github.io","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"left","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -87,7 +93,7 @@
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
-      <strong>hanyi</strong>
+      <strong>Hanyi</strong>
     </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
@@ -132,18 +138,6 @@
               <a class="nav-link" href="/categories/" target="_self">
                 <i class="iconfont icon-category-fill"></i>
                 <span>分类</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/tags/" target="_self">
-                <i class="iconfont icon-tags-fill"></i>
-                <span>标签</span>
               </a>
             </li>
           
@@ -245,20 +239,6 @@
           
           
             <div class="col-4 mobile-grid-cell">
-              <a href="/tags/" target="_self">
-                <div class="mobile-grid-item">
-                  <i class="iconfont icon-tags-fill"></i>
-                  <span>标签</span>
-                </div>
-              </a>
-            </div>
-          
-        
-          
-          
-          
-          
-            <div class="col-4 mobile-grid-cell">
               <a href="/about/" target="_self">
                 <div class="mobile-grid-item">
                   <i class="iconfont icon-user-fill"></i>
@@ -318,7 +298,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="An elegant Material-Design theme for Hexo"></span>
+            <span id="subtitle" data-typed-text="Attention Is All You Need"></span>
           
         </div>
 
@@ -356,18 +336,24 @@
   <div class="row mx-auto index-card">
     
     
-    <article class="col-12 col-md-12 mx-auto index-info">
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2026/03/21/C/" target="_self">
+          <img src="/img/default.png" srcset="/img/loading.gif" lazyload alt="C语言程序设计">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/2026/03/20/%E8%AE%A1%E7%BB%84/" target="_self">
-          计算机组成原理
+        <a href="/2026/03/21/C/" target="_self">
+          C语言程序设计
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2026/03/20/%E8%AE%A1%E7%BB%84/" target="_self">
+      <a class="index-excerpt " href="/2026/03/21/C/" target="_self">
         <div>
-          计组  计算机体系结构   CPU：实际执行程序的部分 微处理器：单个硅片上上实现的CPU 寄存器：CPU内部用来存放数据的存储单元 时钟：用以生成连续的间隔固定的电脉冲流 指令集体系结构（ISA）： CPU 对程序员（或编译器）提供的“接口规范（程序员可见的）  程序的执行过程  指令集体系结构（ISA）   精简指令集计算机（RISC）：ARM架构   复杂指令集计算机（CISC）：x86架
+          C语言笔记
         </div>
       </a>
 
@@ -375,8 +361,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2026-03-20 20:24" pubdate>
-              2026-03-20
+            <time datetime="2026-03-21 00:00" pubdate>
+              2026-03-21
             </time>
           </div>
         
@@ -410,81 +396,24 @@
   <div class="row mx-auto index-card">
     
     
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2026/03/20/C/" target="_self">
-          C语言程序设计笔记
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2026/03/21/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" target="_self">
+          <img src="/img/default.png" srcset="/img/loading.gif" lazyload alt="操作系统">
         </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2026/03/20/C/" target="_self">
-        <div>
-          C语言笔记  1. 基本语法 基本数据类型   int  4B 默认有符号signed   n 位补码表示范围：[−2n−1,2n−1−1][-2^{n-1}, 2^{n-1}-1][−2n−1,2n−1−1]   float   double   long double       符号 代表类型 对应含义     %d Integer 有符号十进制整数。   %s String 字符串。
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2026-03-20 20:12" pubdate>
-              2026-03-20
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" class="category-chain-item">计算机基础</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/C%E8%AF%AD%E8%A8%80/">#C语言</a>
-            
-              <a href="/tags/408%E8%80%83%E7%A0%94/">#408考研</a>
-            
-          </div>
-        
       </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
     
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
+    <article class="col-12 col-md-8 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/2026/03/20/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" target="_self">
+        <a href="/2026/03/21/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" target="_self">
           操作系统
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2026/03/20/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" target="_self">
+      <a class="index-excerpt " href="/2026/03/21/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" target="_self">
         <div>
-          操作系统  计算机系统体系结构  冯·诺依曼结构    单处理系统  只有一个CPU，执行通用指令集 带有专用处理器，专用处理器执行有限的指令集，而并不执行用户进程   多处理器系统   非对称处理器：每个处理器有其特定任务，一个主处理器 + 其它处理器，主处理器调度从处理器，并安排任务   对称处理器：每个处理器都参与完成操作系统的所有任务，无主从关系   优点： 增加吞吐量 规模经济 增加可
+          操作系统笔记
         </div>
       </a>
 
@@ -492,8 +421,68 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2026-03-20 19:59" pubdate>
-              2026-03-20
+            <time datetime="2026-03-21 00:00" pubdate>
+              2026-03-21
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" class="category-chain-item">计算机基础</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2026/03/21/%E8%AE%A1%E7%BB%84/" target="_self">
+          <img src="/img/default.png" srcset="/img/loading.gif" lazyload alt="计算机组成原理">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2026/03/21/%E8%AE%A1%E7%BB%84/" target="_self">
+          计算机组成原理
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt " href="/2026/03/21/%E8%AE%A1%E7%BB%84/" target="_self">
+        <div>
+          计算机组成原理笔记
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2026-03-21 00:00" pubdate>
+              2026-03-21
             </time>
           </div>
         
@@ -572,9 +561,35 @@
     <div class="footer-inner">
   
     <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+      <span>&copy; 2026 Hanyi</span>
     </div>
   
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
   
   
 </div>
@@ -627,6 +642,8 @@
 
 
   <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
 
 
 
